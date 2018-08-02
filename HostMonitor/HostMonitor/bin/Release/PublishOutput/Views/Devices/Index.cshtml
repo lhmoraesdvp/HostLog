@@ -1,0 +1,39 @@
+﻿@model IEnumerable<HostMonitor.Models.Devices>
+
+@{
+    ViewBag.Title = "Dispositivos";
+}
+
+<h2>Tipos de dispositivos</h2>
+
+<p>
+    @Html.ActionLink("Criar Novo", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Categoria")
+        </th>
+        <th>
+            @Html.DisplayName("Nome")
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.deviceType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.deviceName)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.deviceId }) |
+            @Html.ActionLink("Detalhes", "Details", new { id=item.deviceId }) |
+            @Html.ActionLink("Apagar", "Delete", new { id=item.deviceId })
+        </td>
+    </tr>
+}
+
+</table>

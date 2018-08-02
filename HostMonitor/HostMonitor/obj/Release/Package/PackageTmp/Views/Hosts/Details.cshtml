@@ -1,0 +1,163 @@
+﻿@model HostMonitor.Models.Host
+
+@{
+    ViewBag.Title = "Detalhes";
+    HostMonitor.Models.Db l = new HostMonitor.Models.Db();
+}
+
+<h2>Detalhes</h2>
+
+<div>
+    <h4>Hosts</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayName("HostName")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hostName)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("IP")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hostIp)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Tipo de dispositivo")
+        </dt>
+
+        <dd>
+            @{
+                var st = l.Devices.Where(c => c.deviceId == Model.hotDevice).Select(c => c.deviceName).ToList();
+                if (st.Count > 0)
+                {
+                    @Html.Raw(l.Devices.Where(c => c.deviceId == Model.hotDevice).Select(c => c.deviceName).SingleOrDefault().ToString())
+
+                }
+                else
+                {
+                    @Html.Display("")
+                }
+            }
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Sistema Operacional")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hostSo)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Ultima Comunicação")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hostComunication)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Ultimo Usuário")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hostUser)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Centro de custo")
+        </dt>
+
+        <dd>
+            @{
+                var sta = l.centroDeCusto.Where(c => c.ccId== Model.hostCc).Select(c => c.ccName).ToList();
+                if (sta.Count > 0)
+                {
+                    @Html.Raw(l.centroDeCusto.Where(c => c.ccId == Model.hostCc).Select(c => c.ccName).SingleOrDefault().ToString())
+
+                }
+                else
+                {
+                    @Html.Display("")
+                }
+            }
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Numero de serie")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hostSerial)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Memoria")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hostHdMemory)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Memoria Livre")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hostHdMemoryFree)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("RAM")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hostRam)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Processador")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hostProcessador)
+        </dd>
+
+  
+
+        <dt>
+            @Html.DisplayName("MAC")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hostMac)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Local")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hostCountry)
+        </dd>
+        <dt>
+            @Html.DisplayName("Estado")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hostState)
+        </dd>
+  
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.hostId }) |
+    @Html.ActionLink("Voltar", "Index")
+</p>

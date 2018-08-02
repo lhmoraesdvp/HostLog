@@ -1,0 +1,68 @@
+﻿@model HostMonitor.Models.SubGroup
+
+@{
+    ViewBag.Title = "Apagar";
+    HostMonitor.Models.Db l = new HostMonitor.Models.Db();
+}
+
+<h2>Apagar Subgrupo</h2>
+
+<h3>Tem certeza que deseja apagar este registro?</h3>
+<div>
+    <h4>@Html.Raw(Model.subgroupName)</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayName("Nome")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.subgroupName)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Descrição")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.subgroupDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Identificação")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.subgroupIdentity)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Grupo")
+        </dt>
+
+        <dd>
+            @{
+                var st = l.HostGroup.Where(c => c.groupId == Model.sGroup).Select(c => c.groupName).ToList();
+                if (st.Count > 0)
+                {
+                    @Html.Raw(l.HostGroup.Where(c => c.groupId == Model.sGroup).Select(c => c.groupName).SingleOrDefault().ToString())
+
+                }
+                else
+                {
+                    @Html.Display("Sem Grupo")
+                }
+            }
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Apagar" class="btn btn-default" /> |
+            @Html.ActionLink("Voltar", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,92 @@
+﻿@model HostMonitor.Models.centroDeCusto
+
+@{
+    ViewBag.Title = "Detalhes";
+    HostMonitor.Models.Db l = new HostMonitor.Models.Db();
+}
+
+<h2>Detalhes</h2>
+
+<div>
+    <h4>Centro de Custo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayName("Nome")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ccName)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Identificação")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ccIdentity)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Descrição")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ccDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Estado")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ccState)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Cidade")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ccCity)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("CEP")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ccPostalCode)
+        </dd>
+
+       
+
+        <dt>
+            @Html.DisplayName("Numero do centro")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ccNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Subgrupo")
+        </dt>
+
+        <dd>
+            @{
+                var st = l.SubGroup.Where(c => c.subgId == Model.ccSubGroup).Select(c => c.subgroupName).ToList();
+                if (st.Count > 0)
+                {
+                    @Html.Raw(l.SubGroup.Where(c => c.subgId == Model.ccSubGroup).Select(c => c.subgroupName).SingleOrDefault().ToString())
+
+                }
+            }
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.ccId }) |
+    @Html.ActionLink("Voltar", "Index")
+</p>

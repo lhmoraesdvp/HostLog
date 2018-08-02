@@ -1,0 +1,42 @@
+﻿@model HostMonitor.Models.HostGroup
+
+@{
+    ViewBag.Title = "Detalhes";
+}
+
+<h2>Grupos de Hosts</h2>
+
+<div>
+    <h4>Detalhes</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayName("Nome")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.groupName)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Descrição")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.groupDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Identificação")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.groupIdentity)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.groupId }) |
+    @Html.ActionLink("Voltar", "Index")
+</p>

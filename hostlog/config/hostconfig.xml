@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<configs>
+  <config>
+    <ccid>4</ccid>
+    <ccname>Meu centro de custo</ccname>
+    <serverip>192.168.1.100</serverip>
+    <time>60 min</time>
+    <device>1</device>
+    <devicename>Dispositivo Movel</devicename>
+  </config>
+</configs>

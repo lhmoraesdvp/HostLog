@@ -1,0 +1,45 @@
+﻿@model IEnumerable<HostMonitor.Models.HostGroup>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Grupos</h2>
+
+<p>
+    @Html.ActionLink("Cadastrar Novo", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Nome")
+        </th>
+        <th>
+            @Html.DisplayName("Descrição")
+        </th>
+        <th>
+            @Html.DisplayName("Identificação")
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.groupName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.groupDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.groupIdentity)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.groupId }) |
+            @Html.ActionLink("Detalhes", "Details", new { id=item.groupId }) |
+            @Html.ActionLink("Apagar", "Delete", new { id=item.groupId })
+        </td>
+    </tr>
+}
+
+</table>

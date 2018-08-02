@@ -1,0 +1,66 @@
+﻿@model IEnumerable<HostMonitor.Models.SubGroup>
+
+@{
+    ViewBag.Title = "SubGrupos";
+
+    HostMonitor.Models.Db l = new HostMonitor.Models.Db();
+    var j = l.HostGroup.Select(c => c.groupName).ToList();
+    var ja = l.HostGroup.Select(c => new { c.groupId, c.groupName }).ToList();
+  
+
+}
+
+<h2>SubGrupos De Hosts</h2>
+
+<p>
+    @Html.ActionLink("Criar SubGrupo", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Nome")
+        </th>
+        <th>
+            @Html.DisplayName("Descrição")
+        </th>
+        <th>
+            @Html.DisplayName("Identificação")
+        </th>
+        <th>
+            @Html.DisplayName("Grupo")
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.subgroupName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.subgroupDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.subgroupIdentity)
+        </td>
+        <td>
+     @{
+         var st = l.HostGroup.Where(c => c.groupId == item.sGroup).Select(c => c.groupName).ToList();
+         if (st.Count > 0)
+         {
+            @Html.Raw(l.HostGroup.Where(c => c.groupId == item.sGroup).Select(c => c.groupName).SingleOrDefault().ToString())
+
+         }
+    }
+           
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.subgId }) |
+            @Html.ActionLink("Detalhes", "Details", new { id=item.subgId }) |
+            @Html.ActionLink("Apagar", "Delete", new { id=item.subgId })
+        </td>
+    </tr>
+}
+
+</table>

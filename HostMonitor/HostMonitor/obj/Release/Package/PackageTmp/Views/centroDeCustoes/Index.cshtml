@@ -1,0 +1,85 @@
+﻿@model IEnumerable<HostMonitor.Models.centroDeCusto>
+
+@{
+    ViewBag.Title = "Index";
+    HostMonitor.Models.Db l = new HostMonitor.Models.Db();
+}
+
+<h2>Centro de custo</h2>
+
+<p>
+    @Html.ActionLink("Criar Novo", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Nome")
+        </th>
+        <th>
+            @Html.DisplayName("Identificação")
+        </th>
+        <th>
+            @Html.DisplayName("Descrição")
+        </th>
+        <th>
+            @Html.DisplayName("Estado")
+        </th>
+        <th>
+            @Html.DisplayName("Cidade")
+        </th>
+        <th>
+            @Html.DisplayName("CEP")
+        </th>
+       
+        <th>
+            @Html.DisplayName("Numero")
+        </th>
+        <th>
+            @Html.DisplayName("Subgrupo")
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ccName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ccIdentity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ccDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ccState)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ccCity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ccPostalCode)
+        </td>
+       
+        <td>
+            @Html.DisplayFor(modelItem => item.ccNumber)
+        </td>
+        <td>
+            @{
+                var st = l.SubGroup.Where(c => c.subgId == item.ccSubGroup).Select(c => c.subgroupName).ToList();
+                if (st.Count > 0)
+                {
+                    @Html.Raw(l.SubGroup.Where(c => c.subgId == item.ccSubGroup).Select(c => c.subgroupName).SingleOrDefault().ToString())
+
+                }
+            }
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.ccId }) |
+            @Html.ActionLink("Detalhes", "Details", new { id=item.ccId }) |
+            @Html.ActionLink("Apagar", "Delete", new { id=item.ccId })
+        </td>
+    </tr>
+}
+
+</table>

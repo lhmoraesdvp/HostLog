@@ -1,0 +1,40 @@
+﻿@model HostMonitor.Models.Devices
+
+@{
+    ViewBag.Title = "Apagar";
+}
+
+<h2>Apagar</h2>
+
+<h3>Tem certeza que deseja apagar este registro?</h3>
+<div>
+    <h4>Dispositivos</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayName("Categoria")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.deviceType)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Nome")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.deviceName)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Apagar" class="btn btn-default" /> |
+            @Html.ActionLink("Voltar", "Index")
+        </div>
+    }
+</div>

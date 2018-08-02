@@ -1,0 +1,83 @@
+﻿@model IEnumerable<HostMonitor.Models.Host>
+
+@{
+    ViewBag.Title = "Hosts";
+    HostMonitor.Models.Db l = new HostMonitor.Models.Db();
+}
+
+<h2>Hosts</h2>
+
+<p>
+
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Host Name")
+        </th>
+        <th>
+            @Html.DisplayName("IP")
+        </th>
+        <th>
+            @Html.DisplayName("Tipo")
+        </th>
+        <th>
+            @Html.DisplayName("Sistema Operacional")
+        </th>
+      
+        <th>
+            @Html.DisplayName("Usuário")
+        </th>
+        <th>
+            @Html.DisplayName("Centro")
+        </th>
+       
+        <th>
+            @Html.DisplayName("Estado")
+        </th>
+      
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.hostName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.hostIp)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.hotDevice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.hostSo)
+        </td>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.hostUser)
+        </td>
+        <td>
+            @{
+                var st = l.centroDeCusto.Where(c => c.ccId== item.hostCc).Select(c => c.ccName).ToList();
+                if (st.Count > 0)
+                {
+                    @Html.Raw(l.centroDeCusto.Where(c => c.ccId == item.hostCc).Select(c => c.ccName).SingleOrDefault().ToString())
+
+                }
+            }
+        </td>
+      
+        <td>
+            @Html.DisplayFor(modelItem => item.hostState)
+        </td>
+      
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.hostId }) |
+            @Html.ActionLink("Detalhes", "Details", new { id=item.hostId }) |
+            @Html.ActionLink("Apagar", "Delete", new { id=item.hostId })
+        </td>
+    </tr>
+}
+
+</table>

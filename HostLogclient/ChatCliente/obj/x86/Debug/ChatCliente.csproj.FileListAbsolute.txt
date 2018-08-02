@@ -1,0 +1,27 @@
+C:\Users\f5361091\documents\visual studio 2010\Projects\ChatCliente\ChatCliente\bin\Debug\ChatCliente.exe
+C:\Users\f5361091\documents\visual studio 2010\Projects\ChatCliente\ChatCliente\bin\Debug\ChatCliente.pdb
+C:\Users\f5361091\documents\visual studio 2010\Projects\ChatCliente\ChatCliente\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\f5361091\documents\visual studio 2010\Projects\ChatCliente\ChatCliente\obj\x86\Debug\ChatCliente.frmCliente.resources
+C:\Users\f5361091\documents\visual studio 2010\Projects\ChatCliente\ChatCliente\obj\x86\Debug\ChatCliente.Properties.Resources.resources
+C:\Users\f5361091\documents\visual studio 2010\Projects\ChatCliente\ChatCliente\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\f5361091\documents\visual studio 2010\Projects\ChatCliente\ChatCliente\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\f5361091\documents\visual studio 2010\Projects\ChatCliente\ChatCliente\obj\x86\Debug\ChatCliente.exe
+C:\Users\f5361091\documents\visual studio 2010\Projects\ChatCliente\ChatCliente\obj\x86\Debug\ChatCliente.pdb
+C:\Users\luis\Desktop\ChatCliente\ChatCliente\bin\Debug\ChatCliente.exe
+C:\Users\luis\Desktop\ChatCliente\ChatCliente\bin\Debug\ChatCliente.pdb
+C:\Users\luis\Desktop\ChatCliente\ChatCliente\obj\x86\Debug\ChatCliente.csprojResolveAssemblyReference.cache
+C:\Users\luis\Desktop\ChatCliente\ChatCliente\obj\x86\Debug\ChatCliente.frmCliente.resources
+C:\Users\luis\Desktop\ChatCliente\ChatCliente\obj\x86\Debug\ChatCliente.Properties.Resources.resources
+C:\Users\luis\Desktop\ChatCliente\ChatCliente\obj\x86\Debug\ChatCliente.csproj.GenerateResource.Cache
+C:\Users\luis\Desktop\ChatCliente\ChatCliente\obj\x86\Debug\ChatCliente.csproj.CoreCompileInputs.cache
+C:\Users\luis\Desktop\ChatCliente\ChatCliente\obj\x86\Debug\ChatCliente.exe
+C:\Users\luis\Desktop\ChatCliente\ChatCliente\obj\x86\Debug\ChatCliente.pdb
+C:\Users\luis\Google Drive\HostLogclient\ChatCliente\bin\Debug\ChatCliente.exe
+C:\Users\luis\Google Drive\HostLogclient\ChatCliente\bin\Debug\ChatCliente.pdb
+C:\Users\luis\Google Drive\HostLogclient\ChatCliente\obj\x86\Debug\ChatCliente.csprojResolveAssemblyReference.cache
+C:\Users\luis\Google Drive\HostLogclient\ChatCliente\obj\x86\Debug\ChatCliente.frmCliente.resources
+C:\Users\luis\Google Drive\HostLogclient\ChatCliente\obj\x86\Debug\ChatCliente.Properties.Resources.resources
+C:\Users\luis\Google Drive\HostLogclient\ChatCliente\obj\x86\Debug\ChatCliente.csproj.GenerateResource.Cache
+C:\Users\luis\Google Drive\HostLogclient\ChatCliente\obj\x86\Debug\ChatCliente.csproj.CoreCompileInputs.cache
+C:\Users\luis\Google Drive\HostLogclient\ChatCliente\obj\x86\Debug\ChatCliente.exe
+C:\Users\luis\Google Drive\HostLogclient\ChatCliente\obj\x86\Debug\ChatCliente.pdb
