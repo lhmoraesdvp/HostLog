@@ -1,14 +1,80 @@
-﻿@{
-    ViewBag.Title = "Home Page";
-}
+﻿
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
+@{
+    ViewBag.Title = "Home Page";
+    HostMonitor.Models.Db l = new HostMonitor.Models.Db();
+    var computadores = l.Devices.Where(c => c.deviceName == "Desktop").Count();
+   
+
+
+}
+<link href="~/Content/index.css" rel="stylesheet" type="text/css" />
+
+
+<br />
+<br />
+<br />
+  
+        <left><div id="chartContainerl" class="op1" style="height: 300px;width:40%"></div></left>
+ 
+
+   
+        <left><div id="chartContainerr" class="op2" style="height: 300px;width:40%"></div></left>
+
+
+
+
+
+
+
+
+<br />
+<br />
+
+<br />
+<br />
+
+<br />
+
+<br />
+<br />
+
+<br />
+<br />
+
+<br />
+<br />
+
+<br />
+<br />
+
+<br />
+<br />
+
+<br />
+
+<br />
+<br />
+  
+   @* <h1>ASP.NET</h1>
+  
     <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
     <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
+
+*@
+
+
+
+
+
+
 
 <div class="row">
+
+
+
+
+
     <div class="col-md-4">
         <h2>Getting started</h2>
         <p>
@@ -29,3 +95,65 @@
         <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
     </div>
 </div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <div class="jumbotront">
+     
+
+        <script type="text/javascript">
+            window.onload = function () {
+              
+                var optionsleft = {
+                    title: {
+                        text: "Tipos de Dispositivos"
+                    },
+                    data: [{
+                        type: "pie",
+                        startAngle: 45,
+                        showInLegend: "true",
+                        legendText: "{label}",
+                        indexLabel: "{label} ({y})",
+                        yValueFormatString: "#,##0.#" % "",
+                        dataPoints: [
+                            { label: "Computadores", y: 50 },
+                            { label: "Dispositivos moveis", y: 50 }
+                
+                        ]
+                    }]
+                };
+                $("#chartContainerl").CanvasJSChart(optionsleft);
+
+
+                var optionsrigth = {
+                    title: {
+                        text: "Dispositivos Conectados"
+                    },
+                    data: [{
+                        type: "pie",
+                        startAngle: 45,
+                        showInLegend: "true",
+                        legendText: "{label}",
+                        indexLabel: "{label} ({y})",
+                        yValueFormatString: "#,##0.#" % "",
+                        dataPoints: [
+                            { label: "Online", y: 50 },
+                            { label: "Ofline", y: 50 }
+                        ]
+                    }]
+                };
+                $("#chartContainerr").CanvasJSChart(optionsrigth);
+
+      
+
+            }
+                
+          
+        </script>
+
+        <script type="text/javascript" src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+        <script type="text/javascript" src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
+
+    </div>
+
+}
