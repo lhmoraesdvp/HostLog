@@ -4,7 +4,67 @@
     ViewBag.Title = "Home Page";
     HostMonitor.Models.Db l = new HostMonitor.Models.Db();
     var computadores = l.Devices.Where(c => c.deviceName == "Desktop").Count();
-   
+
+    Boolean online(string comunicação)
+    {
+        string data = System.DateTime.Now.ToShortDateString();
+
+        TimeSpan tempoAtendHoras = Convert.ToDateTime(data) - Convert.ToDateTime(comunicação);
+        if (tempoAtendHoras.Days == 0)
+        {
+
+            if (tempoAtendHoras.Hours <= 1)
+            {
+                if (tempoAtendHoras.Minutes <= 30)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
+        else
+        {
+            return false;
+        }
+
+
+
+
+    }
+    int  rt()
+    {
+
+        string data = System.DateTime.Now.ToShortDateString();
+        int hostsoff = 0;
+        var hosts = l.Host.ToList();
+        for (int i= 0; i < l.Host.Count();i++)
+        {
+           
+
+            if ( online(hosts[i].hostComunication)==true)
+            {
+                hostsoff++;
+            }
+        }
+
+
+        return hostsoff;
+    }
+
+    int off = rt();
+    int on = l.Host.Count() - off;
+
+    int pcoff = 100 / l.Host.Count() * off;
+
+    int pcon = 100 / l.Host.Count() * on;
+
 
 
 }
@@ -127,7 +187,7 @@
 
                 var optionsrigth = {
                     title: {
-                        text: "Dispositivos Conectados"
+                        text: "Dispositivos Cadastrados @l.Host.Count()"
                     },
                     data: [{
                         type: "pie",
@@ -137,8 +197,8 @@
                         indexLabel: "{label} ({y})",
                         yValueFormatString: "#,##0.#" % "",
                         dataPoints: [
-                            { label: "Online", y: 50 },
-                            { label: "Ofline", y: 50 }
+                            { label: "Online @off", y: @pcon },
+                            { label: "Ofline @on", y: @pcoff }
                         ]
                     }]
                 };
