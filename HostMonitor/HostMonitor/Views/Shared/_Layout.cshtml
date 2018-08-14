@@ -18,16 +18,38 @@
                     <span class="icon-bar"></span>
                 </button>
                 @Html.ActionLink("HostMonitor", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+
+           
             </div>
             <div class="navbar-collapse collapse">
+
+
+
+                <br />
+                <br />
+                <br />
                 <ul class="nav navbar-nav">
-                
-                    <li>@Html.ActionLink("Grupos de Hosts", "", "HostGroups")</li>
-                    <li>@Html.ActionLink("SubGrupos", "", "SubGroups")</li>
-                    <li>@Html.ActionLink("Centros", "", "centroDeCustoes")</li>
-                    <li>@Html.ActionLink("Tipos de Dispositivos", "", "Devices")</li>
                     <li>@Html.ActionLink("Hosts", "", "Hosts")</li>
+                    <li>@Html.ActionLink("Configurações", "", "HostGroups")</li>
+                    <li>
+
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <span class="caret"></span>
+                            <ul class="dropdown-menu">
+                                <li>@Html.ActionLink("Grupos de Hosts ", "", "HostGroups")</li>
+                                <li>@Html.ActionLink("Centro de Custo", "", "centroDeCustoes")</li>
+                                <li>@Html.ActionLink("Tipos de Dispositivos", "", "Devices")</li>
+                                <li>@Html.ActionLink("Sub Grupos", "", "SubGroups")</li>
+
+                            </ul>
+
+
+                        </a>
+                    </li>
+
+
                 </ul>
+
             </div>
         </div>
     </div>

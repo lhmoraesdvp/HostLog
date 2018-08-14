@@ -38,17 +38,17 @@
 
 
     }
-    int  rt()
+    int rt()
     {
 
         string data = System.DateTime.Now.ToShortDateString();
         int hostsoff = 0;
         var hosts = l.Host.ToList();
-        for (int i= 0; i < l.Host.Count();i++)
+        for (int i = 0; i < l.Host.Count(); i++)
         {
-           
 
-            if ( online(hosts[i].hostComunication)==true)
+
+            if (online(hosts[i].hostComunication) == true)
             {
                 hostsoff++;
             }
@@ -74,36 +74,24 @@
 <br />
 <br />
 <br />
-  
-        <left><div id="chartContainerl" class="op1" style="height: 300px;width:40%"></div></left>
- 
-
-   
-        <left><div id="chartContainerr" class="op2" style="height: 300px;width:40%"></div></left>
-
-
-
-
-
-
-
 
 <br />
 <br />
-
 <br />
 <br />
 
-<br />
+<left><div id="chartContainerl" class="op1" style="height: 300px;width:40%"></div></left>
 
-<br />
-<br />
 
-<br />
-<br />
 
-<br />
-<br />
+<left><div id="chartContainerr" class="op2" style="height: 300px;width:40%"></div></left>
+
+
+
+
+
+
+
 
 <br />
 <br />
@@ -115,9 +103,26 @@
 
 <br />
 <br />
-  
-   @* <h1>ASP.NET</h1>
-  
+
+<br />
+<br />
+
+<br />
+<br />
+
+<br />
+<br />
+
+<br />
+<br />
+
+<br />
+
+<br />
+<br />
+
+@* <h1>ASP.NET</h1>
+
     <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
     <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
 
@@ -159,11 +164,11 @@
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
     <div class="jumbotront">
-     
+
 
         <script type="text/javascript">
             window.onload = function () {
-              
+
                 var optionsleft = {
                     title: {
                         text: "Tipos de Dispositivos"
@@ -178,7 +183,7 @@
                         dataPoints: [
                             { label: "Computadores", y: 50 },
                             { label: "Dispositivos moveis", y: 50 }
-                
+
                         ]
                     }]
                 };
@@ -204,11 +209,11 @@
                 };
                 $("#chartContainerr").CanvasJSChart(optionsrigth);
 
-      
+
 
             }
-                
-          
+
+
         </script>
 
         <script type="text/javascript" src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
