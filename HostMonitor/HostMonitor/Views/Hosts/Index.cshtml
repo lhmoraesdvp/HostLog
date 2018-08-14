@@ -1,15 +1,129 @@
 ﻿@model IEnumerable<HostMonitor.Models.Host>
 
 @{
-    ViewBag.Title = "Hosts";
-    HostMonitor.Models.Db l = new HostMonitor.Models.Db();
+                /**/
+
+                ViewBag.Title = "Hosts";
+                HostMonitor.Models.Db l = new HostMonitor.Models.Db();
+    
+                var computadores = l.Devices.Where(c => c.deviceName == "Desktop").Count();
+
+                Boolean online(string comunicação)
+                {
+                    string data = System.DateTime.Now.ToShortDateString();
+
+                    TimeSpan tempoAtendHoras = Convert.ToDateTime(data) - Convert.ToDateTime(comunicação);
+                    if (tempoAtendHoras.Days == 0)
+                    {
+
+                        if (tempoAtendHoras.Hours <= 1)
+                        {
+                            if (tempoAtendHoras.Minutes <= 30)
+                            {
+                                return true;
+                            }
+                            else
+                            {
+                                return false;
+                            }
+                        }
+                        else
+                        {
+                            return false;
+                        }
+                    }
+                    else
+                    {
+                        return false;
+                    }
+
+
+
+
+                }
+                int rt()
+                {
+
+                    string data = System.DateTime.Now.ToShortDateString();
+                    int hostsoff = 0;
+                    var hosts = l.Host.ToList();
+                    for (int i = 0; i < l.Host.Count(); i++)
+                    {
+
+
+                        if (online(hosts[i].hostComunication) == true)
+                        {
+                            hostsoff++;
+                        }
+                    }
+
+
+                    return hostsoff;
+                }
+
+                int off = rt();
+                int on = l.Host.Count() - off;
+
+                int pcoff = 100 / l.Host.Count() * off;
+
+                int pcon = 100 / l.Host.Count() * on;
+
+
+
 }
 
-<h2>Hosts</h2>
+
+
 
 <p>
 
 </p>
+
+
+
+
+
+
+
+<link href="~/Content/index.css" rel="stylesheet" type="text/css" />
+
+
+<br />
+
+<br />
+<br />
+<br />
+<left><div id="chartContainerl" class="op1" style="height: 300px;width:40%"></div></left>
+
+
+
+<left><div id="chartContainerr" class="op2" style="height: 300px;width:40%"></div></left>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <table class="table">
     <tr>
         <th>
@@ -24,60 +138,124 @@
         <th>
             @Html.DisplayName("Sistema Operacional")
         </th>
-      
+
         <th>
             @Html.DisplayName("Usuário")
         </th>
         <th>
             @Html.DisplayName("Centro")
         </th>
-       
+
         <th>
             @Html.DisplayName("Estado")
         </th>
-      
+
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.hostName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.hostIp)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.hotDevice)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.hostSo)
-        </td>
-        
-        <td>
-            @Html.DisplayFor(modelItem => item.hostUser)
-        </td>
-        <td>
-            @{
-                var st = l.centroDeCusto.Where(c => c.ccId== item.hostCc).Select(c => c.ccName).ToList();
-                if (st.Count > 0)
-                {
-                    @Html.Raw(l.centroDeCusto.Where(c => c.ccId == item.hostCc).Select(c => c.ccName).SingleOrDefault().ToString())
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.hostName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.hostIp)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.hotDevice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.hostSo)
+            </td>
 
+            <td>
+                @Html.DisplayFor(modelItem => item.hostUser)
+            </td>
+            <td>
+                @{
+                    var st = l.centroDeCusto.Where(c => c.ccId == item.hostCc).Select(c => c.ccName).ToList();
+                    if (st.Count > 0)
+                    {
+                        @Html.Raw(l.centroDeCusto.Where(c => c.ccId == item.hostCc).Select(c => c.ccName).SingleOrDefault().ToString())
+
+                    }
                 }
-            }
-        </td>
-      
-        <td>
-            @Html.DisplayFor(modelItem => item.hostState)
-        </td>
-      
-        <td>
-            @Html.ActionLink("Editar", "Edit", new { id=item.hostId }) |
-            @Html.ActionLink("Detalhes", "Details", new { id=item.hostId }) |
-            @Html.ActionLink("Apagar", "Delete", new { id=item.hostId })
-        </td>
-    </tr>
-}
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.hostState)
+            </td>
+
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.hostId }) |
+                @Html.ActionLink("Detalhes", "Details", new { id = item.hostId }) |
+                @Html.ActionLink("Apagar", "Delete", new { id = item.hostId })
+            </td>
+        </tr>
+    }
 
 </table>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <div class="jumbotront">
+
+
+        <script type="text/javascript">
+            window.onload = function () {
+
+                var optionsleft = {
+                    title: {
+                        text: "Tipos de Dispositivos"
+                    },
+                    data: [{
+                        type: "pie",
+                        startAngle: 45,
+                        showInLegend: "true",
+                        legendText: "{label}",
+                        indexLabel: "{label} ({y})",
+                        yValueFormatString: "#,##0.#" % "",
+                        dataPoints: [
+                            { label: "Computadores", y: 50 },
+                            { label: "Dispositivos moveis", y: 50 }
+
+                        ]
+                    }]
+                };
+                $("#chartContainerl").CanvasJSChart(optionsleft);
+
+
+                var optionsrigth = {
+                    title: {
+                        text: "Dispositivos Cadastrados @l.Host.Count()"
+                    },
+                    data: [{
+                        type: "pie",
+                        startAngle: 45,
+                        showInLegend: "true",
+                        legendText: "{label}",
+                        indexLabel: "{label} ({y})",
+                        yValueFormatString: "#,##0.#" % "",
+                        dataPoints: [
+                            { label: "Online @off", y: @pcon },
+                            { label: "Ofline @on", y: @pcoff }
+                        ]
+                    }]
+                };
+                $("#chartContainerr").CanvasJSChart(optionsrigth);
+
+
+
+            }
+
+
+        </script>
+
+        <script type="text/javascript" src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+        <script type="text/javascript" src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
+
+    </div>
+
+}
