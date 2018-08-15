@@ -25,3 +25,12 @@ C:\Users\luis\Google Drive\HostLogclient\ChatCliente\obj\x86\Debug\ChatCliente.c
 C:\Users\luis\Google Drive\HostLogclient\ChatCliente\obj\x86\Debug\ChatCliente.csproj.CoreCompileInputs.cache
 C:\Users\luis\Google Drive\HostLogclient\ChatCliente\obj\x86\Debug\ChatCliente.exe
 C:\Users\luis\Google Drive\HostLogclient\ChatCliente\obj\x86\Debug\ChatCliente.pdb
+C:\Users\luis.moraes\Documents\GitHub\HostLog\HostLogclient\ChatCliente\bin\Debug\ChatCliente.exe
+C:\Users\luis.moraes\Documents\GitHub\HostLog\HostLogclient\ChatCliente\bin\Debug\ChatCliente.pdb
+C:\Users\luis.moraes\Documents\GitHub\HostLog\HostLogclient\ChatCliente\obj\x86\Debug\ChatCliente.csprojAssemblyReference.cache
+C:\Users\luis.moraes\Documents\GitHub\HostLog\HostLogclient\ChatCliente\obj\x86\Debug\ChatCliente.frmCliente.resources
+C:\Users\luis.moraes\Documents\GitHub\HostLog\HostLogclient\ChatCliente\obj\x86\Debug\ChatCliente.Properties.Resources.resources
+C:\Users\luis.moraes\Documents\GitHub\HostLog\HostLogclient\ChatCliente\obj\x86\Debug\ChatCliente.csproj.GenerateResource.cache
+C:\Users\luis.moraes\Documents\GitHub\HostLog\HostLogclient\ChatCliente\obj\x86\Debug\ChatCliente.csproj.CoreCompileInputs.cache
+C:\Users\luis.moraes\Documents\GitHub\HostLog\HostLogclient\ChatCliente\obj\x86\Debug\ChatCliente.exe
+C:\Users\luis.moraes\Documents\GitHub\HostLog\HostLogclient\ChatCliente\obj\x86\Debug\ChatCliente.pdb

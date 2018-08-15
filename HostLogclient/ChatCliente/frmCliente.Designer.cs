@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCliente));
             this.txtLog = new System.Windows.Forms.TextBox();
-            this.btnEnviar = new System.Windows.Forms.Button();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.minizarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -42,22 +41,12 @@
             // 
             // txtLog
             // 
-            this.txtLog.Location = new System.Drawing.Point(21, 92);
+            this.txtLog.Location = new System.Drawing.Point(12, 12);
             this.txtLog.Multiline = true;
             this.txtLog.Name = "txtLog";
             this.txtLog.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtLog.Size = new System.Drawing.Size(340, 327);
             this.txtLog.TabIndex = 4;
-            // 
-            // btnEnviar
-            // 
-            this.btnEnviar.Location = new System.Drawing.Point(279, 430);
-            this.btnEnviar.Name = "btnEnviar";
-            this.btnEnviar.Size = new System.Drawing.Size(84, 23);
-            this.btnEnviar.TabIndex = 7;
-            this.btnEnviar.Text = "&Enviar";
-            this.btnEnviar.UseVisualStyleBackColor = true;
-            this.btnEnviar.Click += new System.EventHandler(this.btnEnviar_Click);
             // 
             // notifyIcon1
             // 
@@ -100,8 +89,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(918, 462);
-            this.Controls.Add(this.btnEnviar);
+            this.ClientSize = new System.Drawing.Size(368, 362);
             this.Controls.Add(this.txtLog);
             this.Name = "frmCliente";
             this.Text = "Chat - Cliente";
@@ -117,7 +105,6 @@
 
         #endregion
         private System.Windows.Forms.TextBox txtLog;
-        private System.Windows.Forms.Button btnEnviar;
         private System.Windows.Forms.NotifyIcon notifyIcon1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem minizarToolStripMenuItem;

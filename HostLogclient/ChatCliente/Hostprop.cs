@@ -291,9 +291,10 @@ namespace ChatCliente
         public void getip()
         {
             ip = Dns.GetHostAddresses(Dns.GetHostName()); ;
+          
             if (ip != null)
             {
-                hostip = ip[3].ToString();
+                hostip = ip[1].ToString();
             }
         }
         public enum WindowsVersion

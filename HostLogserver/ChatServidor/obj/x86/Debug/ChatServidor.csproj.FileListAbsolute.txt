@@ -44,3 +44,18 @@ C:\Users\luis\Google Drive\HostLogserver\ChatServidor\bin\Debug\ChatServidor.pdb
 C:\Users\luis\Google Drive\HostLogserver\ChatServidor\obj\x86\Debug\ChatServidor.Properties.Resources.resources
 C:\Users\luis\Google Drive\HostLogserver\ChatServidor\obj\x86\Debug\ChatServidor.exe
 C:\Users\luis\Google Drive\HostLogserver\ChatServidor\obj\x86\Debug\ChatServidor.pdb
+C:\Users\luis.moraes\Documents\GitHub\HostLog\HostLogserver\ChatServidor\bin\Debug\ChatServidor.exe.config
+C:\Users\luis.moraes\Documents\GitHub\HostLog\HostLogserver\ChatServidor\bin\Debug\ChatServidor.exe
+C:\Users\luis.moraes\Documents\GitHub\HostLog\HostLogserver\ChatServidor\bin\Debug\ChatServidor.pdb
+C:\Users\luis.moraes\Documents\GitHub\HostLog\HostLogserver\ChatServidor\bin\Debug\EntityFramework.dll
+C:\Users\luis.moraes\Documents\GitHub\HostLog\HostLogserver\ChatServidor\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\luis.moraes\Documents\GitHub\HostLog\HostLogserver\ChatServidor\bin\Debug\EntityFramework.xml
+C:\Users\luis.moraes\Documents\GitHub\HostLog\HostLogserver\ChatServidor\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\luis.moraes\Documents\GitHub\HostLog\HostLogserver\ChatServidor\obj\x86\Debug\ChatServidor.csprojAssemblyReference.cache
+C:\Users\luis.moraes\Documents\GitHub\HostLog\HostLogserver\ChatServidor\obj\x86\Debug\ChatServidor.Form1.resources
+C:\Users\luis.moraes\Documents\GitHub\HostLog\HostLogserver\ChatServidor\obj\x86\Debug\ChatServidor.Properties.Resources.resources
+C:\Users\luis.moraes\Documents\GitHub\HostLog\HostLogserver\ChatServidor\obj\x86\Debug\ChatServidor.csproj.GenerateResource.cache
+C:\Users\luis.moraes\Documents\GitHub\HostLog\HostLogserver\ChatServidor\obj\x86\Debug\ChatServidor.csproj.CoreCompileInputs.cache
+C:\Users\luis.moraes\Documents\GitHub\HostLog\HostLogserver\ChatServidor\obj\x86\Debug\ChatServidor.csproj.CopyComplete
+C:\Users\luis.moraes\Documents\GitHub\HostLog\HostLogserver\ChatServidor\obj\x86\Debug\ChatServidor.exe
+C:\Users\luis.moraes\Documents\GitHub\HostLog\HostLogserver\ChatServidor\obj\x86\Debug\ChatServidor.pdb

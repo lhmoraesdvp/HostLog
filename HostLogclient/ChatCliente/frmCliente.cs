@@ -63,8 +63,7 @@ namespace ChatCliente
             
    
        
-                btnEnviar.Enabled = true;
-       
+             
 
                 // Envia o nome do usuário ao servidor
             
