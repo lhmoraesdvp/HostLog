@@ -10,7 +10,7 @@ using System.Xml.Linq;
 using ChatCliente.Config;
 using System.Linq;
 using System.Collections.Generic;
-
+using System.Diagnostics;
 namespace ChatCliente
 {
     public partial class frmCliente : Form
@@ -40,8 +40,9 @@ namespace ChatCliente
            InitializeComponent();
             conection.InicializaConexao();
             InicializaConexao();
-
          
+
+
         }
     
 
@@ -88,47 +89,80 @@ namespace ChatCliente
 
         private void RecebeMensagens()
         {
-            // recebe a resposta do servidor
-            strReceptor = new StreamReader(conection.tcpServidor.GetStream());
-            string ConResposta = strReceptor.ReadLine();
-            // Se o primeiro caracater da resposta é 1 a conexão foi feita com sucesso
-            if (ConResposta[0] == '1')
+            try
             {
-                // Atualiza o formulário para informar que esta conectado
-               // this.Invoke(new AtualizaLogCallBack(this.AtualizaLog), new object[] { "Conectado com sucesso!" });
+
+
+
+
+
+
+
+
+                // recebe a resposta do servidor
+                strReceptor = new StreamReader(conection.tcpServidor.GetStream());
+                string ConResposta = strReceptor.ReadLine();
+                // Se o primeiro caracater da resposta é 1 a conexão foi feita com sucesso
+                if (ConResposta[0] == '1')
+                {
+                    // Atualiza o formulário para informar que esta conectado
+                    // this.Invoke(new AtualizaLogCallBack(this.AtualizaLog), new object[] { "Conectado com sucesso!" });
+                }
+                else // Se o primeiro caractere não for 1 a conexão falhou
+                {
+                    string Motivo = "Não Conectado: ";
+                    // Extrai o motivo da mensagem resposta. O motivo começa no 3o caractere
+                    Motivo += ConResposta.Substring(2, ConResposta.Length - 2);
+                    // Atualiza o formulário como o motivo da falha na conexão
+
+                    // Sai do método
+                    return;
+                }
+
+
             }
-            else // Se o primeiro caractere não for 1 a conexão falhou
+            catch (Exception ex)
             {
-                string Motivo = "Não Conectado: ";
-                // Extrai o motivo da mensagem resposta. O motivo começa no 3o caractere
-                Motivo += ConResposta.Substring(2, ConResposta.Length - 2);
-                // Atualiza o formulário como o motivo da falha na conexão
-      
-                // Sai do método
-               return;
+                Thread.Sleep(100800);
+                string cm = "/C start c:\\hostlog\\config\\restart.bat";
+                Process.Start("cmd.exe", cm);
+
             }
+
+
 
             // Enquanto estiver conectado le as linhas que estão chegando do servidor
             while (Conectado)
             {
                 // exibe mensagems no Textbox
-           
-                sh = 1;
-                string msg = strReceptor.ReadLine();
-             
-               
-                string u = conection.GetHostprop().getmac();
-                if (captusuario(msg) == u)
+                try
                 {
-                    string mg = caputramensagem(msg);
-                    if (mg[1] == '#' && mg[2] == '#')
+
+
+                    sh = 1;
+                    string msg = strReceptor.ReadLine();
+
+                    string u = conection.GetHostprop().getmac();
+                    if (captusuario(msg) == u)
                     {
-                        conection.txtset(attstring(mg));
+                        string mg = caputramensagem(msg);
+                        if (mg[1] == '#' && mg[2] == '#')
+                        {
+                            conection.txtset(attstring(mg));
+                        }
+
+
                     }
-                   
+                    this.Invoke(new AtualizaLogCallBack(this.AtualizaLog), new object[] { msg });
 
                 }
-                this.Invoke(new AtualizaLogCallBack(this.AtualizaLog), new object[] { msg});
+                catch (Exception ex)
+                {
+                  
+
+
+                }
+                
            
             }
         }
@@ -205,7 +239,7 @@ namespace ChatCliente
         {
             // Anexa texto ao final de cada linha
             sh = 1;
-            this.Show();
+         
             txtLog.AppendText(strMensagem + "\r\n");
         }
         public void shi()
@@ -226,6 +260,7 @@ namespace ChatCliente
 
         private void frmCliente_Paint(object sender, PaintEventArgs e)
         {
+            this.Hide();
             if (sh == 0)
             {
                 this.Hide();
@@ -238,11 +273,20 @@ namespace ChatCliente
 
         private void frmCliente_FormClosing(object sender, FormClosingEventArgs e)
         {
-            
-                e.Cancel = true;
-            sh = 0;
-            this.Hide();
+            try
+            {
 
+
+                e.Cancel = true;
+                sh = 0;
+                this.Hide();
+            }
+            catch (Exception ex)
+            {
+          
+
+
+            }
         }
 
         private void mostrarToolStripMenuItem_Click(object sender, EventArgs e)

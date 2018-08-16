@@ -16,7 +16,7 @@ using System.Net.Sockets;
 using System.Xml;
 using System.Xml.Linq;
 using ChatCliente.Config;
-
+using System.Diagnostics;
 namespace ChatCliente
 {
     public class Conn
@@ -37,7 +37,7 @@ namespace ChatCliente
             {
                 // Trata o endereço IP informado em um objeto IPAdress
                 enderecoIP = IPAddress.Parse("10.11.5.105");
-                MessageBox.Show(enderecoIP.ToString());
+            //    MessageBox.Show(enderecoIP.ToString());
                 // Inicia uma nova conexão TCP com o servidor chat
                 tcpServidor = new TcpClient();
                 tcpServidor.Connect(enderecoIP, 2502);
@@ -60,7 +60,7 @@ namespace ChatCliente
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro : " + ex.Message, "Erro na conexão com servidor", MessageBoxButtons.OK, MessageBoxIcon.Information);
+               // MessageBox.Show("Erro : " + ex.Message, "Erro na conexão com servidor", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -118,15 +118,36 @@ namespace ChatCliente
         public void comunica()
         {
 
-
-            string data = DateTime.Now.ToShortDateString() + "  " + DateTime.Now.ToLongTimeString();
-            if (Conectado == true)
+            try
             {
 
 
-                stwEnviador.WriteLine(hostprop.hostname + "!!" + hostprop.hostip + "!!" + "1" + "!!" + hostprop.hostso + "!!" + data + "!!" + hostprop.hostuser + "!!" + hostprop.hostserial + "!!" + hostprop.hosthdmemory + "!!" + hostprop.hosthdmermoryfree + "!!" + hostprop.hostram + "!!" + hostprop.hostprocessador + "core" + "!!" + "SP" + "!!" + hostprop.hostmac + "!!" + "BR" + "!!" + "4" + "!!");
-                stwEnviador.Flush();
+                string data = DateTime.Now.ToShortDateString() + "  " + DateTime.Now.ToLongTimeString();
+                if (Conectado == true)
+                {
+
+
+                    stwEnviador.WriteLine(hostprop.hostname + "!!" + hostprop.hostip + "!!" + "1" + "!!" + hostprop.hostso + "!!" + data + "!!" + hostprop.hostuser + "!!" + hostprop.hostserial + "!!" + hostprop.hosthdmemory + "!!" + hostprop.hosthdmermoryfree + "!!" + hostprop.hostram + "!!" + hostprop.hostprocessador + "core" + "!!" + "SP" + "!!" + hostprop.hostmac + "!!" + "BR" + "!!" + "4" + "!!");
+                    stwEnviador.Flush();
+                }
+
+
             }
+            catch (Exception ex)
+            {
+
+
+                Thread.Sleep(100800);
+                string cm = "/C start c:\\hostlog\\config\\restart.bat";
+                Process.Start("cmd.exe", cm);
+
+            }
+          
+
+
+
+
+
         }
     }
 }
