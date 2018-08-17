@@ -36,23 +36,25 @@
             this.minizarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mostrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.contextMenuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // txtLog
             // 
-            this.txtLog.Location = new System.Drawing.Point(12, 12);
+            this.txtLog.Location = new System.Drawing.Point(3, 120);
             this.txtLog.Multiline = true;
             this.txtLog.Name = "txtLog";
             this.txtLog.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtLog.Size = new System.Drawing.Size(340, 327);
+            this.txtLog.Size = new System.Drawing.Size(291, 214);
             this.txtLog.TabIndex = 4;
             // 
             // notifyIcon1
             // 
             this.notifyIcon1.ContextMenuStrip = this.contextMenuStrip1;
             this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
-            this.notifyIcon1.Text = "notifyIcon1";
+            this.notifyIcon1.Text = "HostLog Client";
             this.notifyIcon1.Visible = true;
             // 
             // contextMenuStrip1
@@ -62,42 +64,55 @@
             this.sairToolStripMenuItem,
             this.mostrarToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(116, 70);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 92);
             // 
             // minizarToolStripMenuItem
             // 
             this.minizarToolStripMenuItem.Name = "minizarToolStripMenuItem";
-            this.minizarToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
+            this.minizarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.minizarToolStripMenuItem.Text = "Minizar";
             this.minizarToolStripMenuItem.Click += new System.EventHandler(this.minizarToolStripMenuItem_Click);
             // 
             // sairToolStripMenuItem
             // 
             this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
-            this.sairToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
+            this.sairToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.sairToolStripMenuItem.Text = "Sair";
+            this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click);
             // 
             // mostrarToolStripMenuItem
             // 
             this.mostrarToolStripMenuItem.Name = "mostrarToolStripMenuItem";
-            this.mostrarToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
+            this.mostrarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.mostrarToolStripMenuItem.Text = "Mostrar";
             this.mostrarToolStripMenuItem.Click += new System.EventHandler(this.mostrarToolStripMenuItem_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::ChatCliente.Properties.Resources.Messages_icon;
+            this.pictureBox1.Location = new System.Drawing.Point(65, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(147, 111);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 5;
+            this.pictureBox1.TabStop = false;
             // 
             // frmCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(368, 362);
+            this.ClientSize = new System.Drawing.Size(306, 346);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.txtLog);
             this.Name = "frmCliente";
-            this.Text = "Chat - Cliente";
+            this.Text = "HostlogClient";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmCliente_FormClosing);
             this.Load += new System.EventHandler(this.frmCliente_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.frmCliente_Paint);
             this.ParentChanged += new System.EventHandler(this.frmCliente_ParentChanged);
             this.contextMenuStrip1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -110,6 +125,7 @@
         private System.Windows.Forms.ToolStripMenuItem minizarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sairToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mostrarToolStripMenuItem;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

@@ -73,7 +73,7 @@ namespace ChatCliente
                 //Inicia a thread para receber mensagens e nova comunicação
                 mensagemThread = new Thread(new ThreadStart(RecebeMensagens));
                 mensagemThread.Start();
-                timer1 = new System.Threading.Timer(new TimerCallback(timer1_Tick), null, 5000, 7000);
+                timer1 = new System.Threading.Timer(new TimerCallback(timer1_Tick), null, 5000, 30000);
             }
             catch (Exception ex)
             {
@@ -260,14 +260,14 @@ namespace ChatCliente
 
         private void frmCliente_Paint(object sender, PaintEventArgs e)
         {
-            this.Hide();
+          
             if (sh == 0)
             {
                 this.Hide();
             }
             else
             {
-                
+                this.Show();
             }
         }
 
@@ -309,6 +309,12 @@ namespace ChatCliente
         private void frmCliente_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void sairToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string cm = "/C start c:\\hostlog\\config\\stop.bat";
+            Process.Start("cmd.exe", cm);
         }
     }
 }
