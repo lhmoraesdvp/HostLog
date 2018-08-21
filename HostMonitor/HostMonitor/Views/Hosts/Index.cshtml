@@ -51,7 +51,7 @@
         {
 
 
-            if (online(hosts[i].hostComunication) == true)
+            if (online(hosts[i].hostComunication) == false)
             {
                 hostsoff++;
             }
@@ -239,8 +239,8 @@
                         indexLabel: "{label} ({y})",
                         yValueFormatString: "#,##0.#" % "",
                         dataPoints: [
-                            { label: "Online @off", y: @pcon },
-                            { label: "Ofline @on", y: @pcoff }
+                            { label: "Online @on", y: @pcon },
+                            { label: "Offline @off", y: @pcoff }
                         ]
                     }]
                 };

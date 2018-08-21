@@ -257,8 +257,8 @@ C:\Users\luis.moraes\Documents\GitHub\HostLog\HostMonitor\HostMonitor\bin\pt-br\
 C:\Users\luis.moraes\Documents\GitHub\HostLog\HostMonitor\HostMonitor\bin\pt-br\Microsoft.AspNet.Identity.Core.resources.dll
 C:\Users\luis.moraes\Documents\GitHub\HostLog\HostMonitor\HostMonitor\bin\pt-br\Microsoft.AspNet.Identity.Owin.resources.dll
 C:\Users\luis.moraes\Documents\GitHub\HostLog\HostMonitor\HostMonitor\bin\pt-br\Microsoft.AspNet.Identity.EntityFramework.resources.dll
-C:\Users\luis.moraes\Documents\GitHub\HostLog\HostMonitor\HostMonitor\obj\Debug\HostMonitor.csprojAssemblyReference.cache
 C:\Users\luis.moraes\Documents\GitHub\HostLog\HostMonitor\HostMonitor\obj\Debug\HostMonitor.csproj.CoreCompileInputs.cache
 C:\Users\luis.moraes\Documents\GitHub\HostLog\HostMonitor\HostMonitor\obj\Debug\HostMonitor.csproj.CopyComplete
 C:\Users\luis.moraes\Documents\GitHub\HostLog\HostMonitor\HostMonitor\obj\Debug\HostMonitor.dll
 C:\Users\luis.moraes\Documents\GitHub\HostLog\HostMonitor\HostMonitor\obj\Debug\HostMonitor.pdb
+C:\Users\luis.moraes\Documents\GitHub\HostLog\HostMonitor\HostMonitor\obj\Debug\HostMonitor.csprojAssemblyReference.cache

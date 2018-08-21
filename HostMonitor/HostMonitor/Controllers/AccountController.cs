@@ -12,11 +12,12 @@ using HostMonitor.Models;
 
 namespace HostMonitor.Controllers
 {
-    [Authorize]
+  
     public class AccountController : Controller
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+ 
 
         public AccountController()
         {
@@ -55,6 +56,7 @@ namespace HostMonitor.Controllers
         //
         // GET: /Account/Login
         [AllowAnonymous]
+        [Authorize(Roles = "usuario")]
         public ActionResult Login(string returnUrl)
         {
             ViewBag.ReturnUrl = returnUrl;
@@ -137,6 +139,7 @@ namespace HostMonitor.Controllers
         //
         // GET: /Account/Register
         [AllowAnonymous]
+        [Authorize(Roles = "administrador")]
         public ActionResult Register()
         {
             return View();
@@ -163,7 +166,7 @@ namespace HostMonitor.Controllers
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirmar sua conta", "Confirme sua conta clicando <a href=\"" + callbackUrl + "\">aqui</a>");
 
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "hosts");
                 }
                 AddErrors(result);
             }
@@ -392,7 +395,7 @@ namespace HostMonitor.Controllers
         public ActionResult LogOff()
         {
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Hosts");
         }
 
         //
@@ -449,7 +452,7 @@ namespace HostMonitor.Controllers
             {
                 return Redirect(returnUrl);
             }
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Hosts");
         }
 
         internal class ChallengeResult : HttpUnauthorizedResult

@@ -15,7 +15,8 @@ namespace HostMonitor.Controllers
         private Db db = new Db();
 
         // GET: Hosts
-        [Authorize(Roles = "administrador")]
+
+        [Authorize(Roles = "usuario")]
         public ActionResult Index()
         {
             return View(db.Host.ToList());

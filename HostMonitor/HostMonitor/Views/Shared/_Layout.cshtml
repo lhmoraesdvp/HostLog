@@ -25,22 +25,62 @@
 
                 <ul class="nav navbar-nav">
 
-                    <li>@Html.ActionLink("Configurações", "", "HostGroups")</li>
-                    <li>
+                    @if (Request.IsAuthenticated)
+                    {
+                        if (User.IsInRole("administrador"))
+                        {
+                            <li>@Html.ActionLink("Configurações", "", "HostGroups")</li>
+                            <li>
 
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <span class="caret"></span>
-                            <ul class="dropdown-menu">
-                                <li>@Html.ActionLink("Grupos de Hosts ", "", "HostGroups")</li>
-                                <li>@Html.ActionLink("Centro de Custo", "", "centroDeCustoes")</li>
-                                <li>@Html.ActionLink("Tipos de Dispositivos", "", "Devices")</li>
-                                <li>@Html.ActionLink("Sub Grupos", "", "SubGroups")</li>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <span class="caret"></span>
+                                    <ul class="dropdown-menu">
+                                        <li>@Html.ActionLink("Cadastrar Usuário ", "Register", "Account")</li>
+                                        <li>@Html.ActionLink("Grupos de Hosts ", "", "HostGroups")</li>
+                                        <li>@Html.ActionLink("Centro de Custo", "", "centroDeCustoes")</li>
+                                        <li>@Html.ActionLink("Tipos de Dispositivos", "", "Devices")</li>
+                                        <li>@Html.ActionLink("Sub Grupos", "", "SubGroups")</li>
 
-                            </ul>
+                                    </ul>
 
 
-                        </a>
-                    </li>
+                                </a>
+                            </li>
+
+
+                        }
+                   @*     @if (User.IsInRole("usuario"))
+                        {
+
+                            <li>@Html.ActionLink("Configurações", "", "HostGroups")</li>
+                            <li>
+
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <span class="caret"></span>
+                                    <ul class="dropdown-menu">
+                                        <li>@Html.ActionLink("Hosts ", "", "hosts")</li>
+                                       
+                                    </ul>
+
+
+                                </a>
+                            </li>
+
+
+                        }
+
+                       *@
+
+                    }
+
+
+
+
+
+
+
+
+
 
                     @Html.Partial("_LoginPartial")
                 </ul>
