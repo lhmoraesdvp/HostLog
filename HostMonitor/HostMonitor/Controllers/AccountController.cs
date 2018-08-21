@@ -17,8 +17,8 @@ namespace HostMonitor.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
- 
 
+      
         public AccountController()
         {
         }
@@ -138,15 +138,22 @@ namespace HostMonitor.Controllers
 
         //
         // GET: /Account/Register
-        [AllowAnonymous]
+       
+
         [Authorize(Roles = "administrador")]
         public ActionResult Register()
         {
-            return View();
+            
+                return View();
+            
+       
+               
+            
         }
 
         //
         // POST: /Account/Register
+        [Authorize(Roles = "administrador")]
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]

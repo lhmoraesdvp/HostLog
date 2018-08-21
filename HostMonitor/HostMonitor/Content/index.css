@@ -15,3 +15,22 @@ div.op2 {
     float: right;
 }
 
+ 
+
+#circulo1 {
+  background: radial-gradient(circle closest-side,#f00 0%,#f00 98%,rgba(0,0,0,0) 100%);
+  
+  width:20px;height:20px;float:left;margin:10px
+}
+
+#circulo2 {
+  background: radial-gradient(circle closest-side,
+     #999 0%,#999 74%,#e00 76%,#e00 98%,rgba(0,0,0,0) 100%);
+}
+
+
+}
+
+
+
+

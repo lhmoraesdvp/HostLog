@@ -36,7 +36,7 @@ namespace ChatCliente
             try
             {
                 // Trata o endereço IP informado em um objeto IPAdress
-                enderecoIP = IPAddress.Parse("10.11.5.105");
+                enderecoIP = IPAddress.Parse("192.168.15.15");
             //    MessageBox.Show(enderecoIP.ToString());
                 // Inicia uma nova conexão TCP com o servidor chat
                 tcpServidor = new TcpClient();
