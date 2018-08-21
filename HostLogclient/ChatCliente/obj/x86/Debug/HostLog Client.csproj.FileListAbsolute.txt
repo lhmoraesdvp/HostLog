@@ -6,3 +6,12 @@ C:\Users\luis.moraes\Documents\GitHub\HostLog\HostLogclient\ChatCliente\obj\x86\
 C:\Users\luis.moraes\Documents\GitHub\HostLog\HostLogclient\ChatCliente\obj\x86\Debug\HostLog Client.csproj.CoreCompileInputs.cache
 C:\Users\luis.moraes\Documents\GitHub\HostLog\HostLogclient\ChatCliente\obj\x86\Debug\ChatCliente.exe
 C:\Users\luis.moraes\Documents\GitHub\HostLog\HostLogclient\ChatCliente\obj\x86\Debug\ChatCliente.pdb
+C:\Git_HostLog\HostLog\HostLogclient\ChatCliente\bin\Debug\ChatCliente.exe
+C:\Git_HostLog\HostLog\HostLogclient\ChatCliente\bin\Debug\ChatCliente.pdb
+C:\Git_HostLog\HostLog\HostLogclient\ChatCliente\obj\x86\Debug\HostLog Client.csprojResolveAssemblyReference.cache
+C:\Git_HostLog\HostLog\HostLogclient\ChatCliente\obj\x86\Debug\ChatCliente.frmCliente.resources
+C:\Git_HostLog\HostLog\HostLogclient\ChatCliente\obj\x86\Debug\ChatCliente.Properties.Resources.resources
+C:\Git_HostLog\HostLog\HostLogclient\ChatCliente\obj\x86\Debug\HostLog Client.csproj.GenerateResource.Cache
+C:\Git_HostLog\HostLog\HostLogclient\ChatCliente\obj\x86\Debug\HostLog Client.csproj.CoreCompileInputs.cache
+C:\Git_HostLog\HostLog\HostLogclient\ChatCliente\obj\x86\Debug\ChatCliente.exe
+C:\Git_HostLog\HostLog\HostLogclient\ChatCliente\obj\x86\Debug\ChatCliente.pdb

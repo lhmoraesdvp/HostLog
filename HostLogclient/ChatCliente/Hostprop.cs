@@ -294,7 +294,7 @@ namespace ChatCliente
           
             if (ip != null)
             {
-                hostip = ip[1].ToString();
+                hostip = ip[3].ToString();
             }
         }
         public enum WindowsVersion

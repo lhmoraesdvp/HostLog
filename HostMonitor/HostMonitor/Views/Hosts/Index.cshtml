@@ -5,12 +5,12 @@
 
     ViewBag.Title = "Hosts";
     HostMonitor.Models.Db l = new HostMonitor.Models.Db();
-
+    var ho = l.Host.OrderByDescending(c => c.hostComunication);
     var computadores = l.Devices.Where(c => c.deviceName == "Desktop").Count();
 
     Boolean online(string comunicação)
     {
-        string data = System.DateTime.Now.ToShortDateString();
+        string data=   DateTime.Now.ToShortDateString() + "  " + DateTime.Now.ToLongTimeString();
 
         TimeSpan tempoAtendHoras = Convert.ToDateTime(data) - Convert.ToDateTime(comunicação);
         if (tempoAtendHoras.Days == 0)
@@ -86,7 +86,7 @@
 
 
 <link href="~/Content/index.css" rel="stylesheet" type="text/css" />
-
+<link href="~/Content/st.css" rel="stylesheet" type="text/css" />
 
 <br />
 
@@ -126,6 +126,11 @@
 
 <table class="table">
     <tr>
+
+        <th>
+            @Html.DisplayName("Status")
+        </th>
+    
         <th>
             @Html.DisplayName("Host Name")
         </th>
@@ -153,9 +158,21 @@
         <th></th>
     </tr>
 
-    @foreach (var item in Model)
+    @foreach (var item in ho)
     {
         <tr>
+            <td>
+                @if (online(item.hostComunication))
+                {
+                    <div id="circulo1"></div>
+                }
+                else
+                {
+                    <div id="circulo2"></div>
+                }
+
+            </td>
+
             <td>
                 @Html.DisplayFor(modelItem => item.hostName)
             </td>

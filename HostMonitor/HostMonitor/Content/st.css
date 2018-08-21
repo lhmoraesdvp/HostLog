@@ -1,0 +1,19 @@
+﻿#circulo1 {
+  background-color: #7FFF00;
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    float: center;
+    margin: 4px
+box-shadow: inset -10px -10px 10px #660, inset 3px 3px 5px #FFF;
+}
+#circulo2 {
+  background-color: #FF0000;
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    float: center;
+    margin: 4px
+box-shadow: inset -10px -10px 10px #660, inset 3px 3px 5px #FFF;
+}
+
