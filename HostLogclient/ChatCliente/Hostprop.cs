@@ -38,13 +38,14 @@ namespace ChatCliente
         {
             winnt = GetWindowsVersion().ToString();
             //----------------------
-            getip();
+          
             getmac();
             getserial();
             hostprocessador = getprocessador();
             hostname = SystemInformation.ComputerName;
             hostuser = Domain + "\\" + User;
             hostso = winversion(winnt);
+            getip();
             hosthdmemory = gethdtotal();
             hosthdmermoryfree = gethdlivre();
             hostram = getram();
@@ -291,11 +292,21 @@ namespace ChatCliente
         public void getip()
         {
             ip = Dns.GetHostAddresses(Dns.GetHostName()); ;
-          
-            if (ip != null)
+            if (hostso == "Windows 10")
             {
-                hostip = ip[3].ToString();
+                if (ip != null)
+                {
+                    hostip = ip[3].ToString();
+                }
             }
+            if (hostso == "Windows 7")
+            {
+                if (ip != null)
+                {
+                    hostip = ip[1].ToString();
+                }
+            }
+
         }
         public enum WindowsVersion
         {
