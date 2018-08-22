@@ -220,7 +220,7 @@
                 @if (online(item.hostComunication) == 1)
                 {
                     int ij = online(item.hostComunication);
-                    <div id="circulo2" title="Online"></div>
+                    <div id="circulo1" title="Online"></div>
                     int i = online(item.hostComunication);
                 }
                 else
@@ -326,9 +326,9 @@
                         indexLabel: "{label} ({y}%)",
                         yValueFormatString: "#,##0.#" % "",
                         dataPoints: [
-                            { label: "Alerta @alerta", y: @pcalerta },
-                            { label: "Offline @off", y:@pcoff},
-                            { label: "Online @on", y: @pcon }
+                            { label: "Alerta ", y: @pcalerta },
+                            { label: "Offline ", y:@pcoff},
+                            { label: "Online ", y: @pcon }
                         ]
                     }]
                 };
