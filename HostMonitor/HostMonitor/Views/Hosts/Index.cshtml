@@ -8,35 +8,39 @@
     var ho = l.Host.OrderByDescending(c => c.hostComunication);
     var computadores = l.Devices.Where(c => c.deviceName == "Desktop").Count();
 
-    Boolean online(string comunicação)
+    int  online(string comunicação)
     {
+        int status=3;
         string data=   DateTime.Now.ToShortDateString() + "  " + DateTime.Now.ToLongTimeString();
 
         TimeSpan tempoAtendHoras = Convert.ToDateTime(data) - Convert.ToDateTime(comunicação);
         if (tempoAtendHoras.Days == 0)
         {
+            if (tempoAtendHoras.Hours == 0)
+            {
 
-            if (tempoAtendHoras.Hours <= 1)
-            {
-                if (tempoAtendHoras.Minutes <= 30)
+                if (tempoAtendHoras.Minutes <= 15)
                 {
-                    return true;
+                    status = 1;
                 }
-                else
+                if (tempoAtendHoras.Minutes > 15 && tempoAtendHoras.Minutes <= 30)
                 {
-                    return false;
+                    status = 2;
                 }
-            }
-            else
-            {
-                return false;
+                if (tempoAtendHoras.Minutes > 30)
+                {
+                    status = 3;
+                }
             }
         }
         else
         {
-            return false;
+            status = 3;
         }
 
+
+
+        return status;
 
 
 
@@ -51,7 +55,7 @@
         {
 
 
-            if (online(hosts[i].hostComunication) == false)
+            if (online(hosts[i].hostComunication) == 3)
             {
                 hostsoff++;
             }
@@ -60,13 +64,63 @@
 
         return hostsoff;
     }
+    int ra()
+    {
+
+        string data = System.DateTime.Now.ToShortDateString();
+        int hosta = 0;
+        var hosts = l.Host.ToList();
+        for (int i = 0; i < l.Host.Count(); i++)
+        {
+
+
+            if (online(hosts[i].hostComunication) == 2)
+            {
+                hosta++;
+            }
+        }
+
+
+        return hosta;
+    }
+    int ro()
+    {
+
+        string data = System.DateTime.Now.ToShortDateString();
+        int hosto = 0;
+        var hosts = l.Host.ToList();
+        for (int i = 0; i < l.Host.Count(); i++)
+        {
+
+
+            if (online(hosts[i].hostComunication) == 1)
+            {
+                hosto++;
+            }
+        }
+
+
+        return hosto;
+    }
 
     int off = rt();
-    int on = l.Host.Count() - off;
+    int on = ro();
 
-    int pcoff = 100 / l.Host.Count() * off;
+    int alerta = ra();
 
-    int pcon = 100 / l.Host.Count() * on;
+    float co = l.Host.Count();
+    float pcof = 100 /co;
+    pcof=pcof * off;
+    int pcoff = Convert.ToInt32(pcof);
+
+
+    float pconn = 100 / co;
+    pconn=pconn* on;
+    int pcon = Convert.ToInt32(pconn);
+
+    float pcalertaa = 100 / co;
+    pcalertaa = pcalertaa * alerta;
+    int pcalerta = Convert.ToInt32(pcalertaa);
 
 
 
@@ -162,13 +216,22 @@
     {
         <tr>
             <td>
-                @if (online(item.hostComunication))
+                @if (online(item.hostComunication)==1)
                 {
-                    <div id="circulo1"></div>
+                    <div id="circulo1" title="Online"></div>
                 }
                 else
                 {
-                    <div id="circulo2"></div>
+                    if (online(item.hostComunication) == 2)
+                    {
+                        <div id="circulo2"  title="Alerta"></div>
+                    }
+                    else
+                    {
+                        <div id="circulo3"  title="Offline"></div>
+                    }
+
+
                 }
 
             </td>
@@ -253,11 +316,12 @@
                         startAngle: 45,
                         showInLegend: "true",
                         legendText: "{label}",
-                        indexLabel: "{label} ({y})",
+                        indexLabel: "{label} ({y}%)",
                         yValueFormatString: "#,##0.#" % "",
                         dataPoints: [
-                            { label: "Online @on", y: @pcon },
-                            { label: "Offline @off", y: @pcoff }
+                            { label: "Alerta @alerta", y: @pcalerta },
+                            { label: "Offline @off", y:@pcoff},
+                            { label: "Online @on", y: @pcon }
                         ]
                     }]
                 };
