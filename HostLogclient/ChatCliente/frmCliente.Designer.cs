@@ -61,30 +61,30 @@
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.minizarToolStripMenuItem,
             this.sairToolStripMenuItem,
+            this.minizarToolStripMenuItem,
             this.mostrarToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(116, 70);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 92);
             // 
             // minizarToolStripMenuItem
             // 
             this.minizarToolStripMenuItem.Name = "minizarToolStripMenuItem";
-            this.minizarToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
+            this.minizarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.minizarToolStripMenuItem.Text = "Minizar";
             this.minizarToolStripMenuItem.Click += new System.EventHandler(this.minizarToolStripMenuItem_Click);
             // 
             // sairToolStripMenuItem
             // 
             this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
-            this.sairToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
+            this.sairToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.sairToolStripMenuItem.Text = "Sair";
             this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click);
             // 
             // mostrarToolStripMenuItem
             // 
             this.mostrarToolStripMenuItem.Name = "mostrarToolStripMenuItem";
-            this.mostrarToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
+            this.mostrarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.mostrarToolStripMenuItem.Text = "Mostrar";
             this.mostrarToolStripMenuItem.Click += new System.EventHandler(this.mostrarToolStripMenuItem_Click);
             // 

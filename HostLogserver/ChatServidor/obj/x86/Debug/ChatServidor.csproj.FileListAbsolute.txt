@@ -59,3 +59,17 @@ C:\Users\luis.moraes\Documents\GitHub\HostLog\HostLogserver\ChatServidor\obj\x86
 C:\Users\luis.moraes\Documents\GitHub\HostLog\HostLogserver\ChatServidor\obj\x86\Debug\ChatServidor.csproj.CopyComplete
 C:\Users\luis.moraes\Documents\GitHub\HostLog\HostLogserver\ChatServidor\obj\x86\Debug\ChatServidor.exe
 C:\Users\luis.moraes\Documents\GitHub\HostLog\HostLogserver\ChatServidor\obj\x86\Debug\ChatServidor.pdb
+C:\Git_HostLog\HostLog\HostLogserver\ChatServidor\bin\Debug\ChatServidor.exe.config
+C:\Git_HostLog\HostLog\HostLogserver\ChatServidor\bin\Debug\ChatServidor.exe
+C:\Git_HostLog\HostLog\HostLogserver\ChatServidor\bin\Debug\EntityFramework.dll
+C:\Git_HostLog\HostLog\HostLogserver\ChatServidor\bin\Debug\EntityFramework.SqlServer.dll
+C:\Git_HostLog\HostLog\HostLogserver\ChatServidor\bin\Debug\EntityFramework.xml
+C:\Git_HostLog\HostLog\HostLogserver\ChatServidor\bin\Debug\EntityFramework.SqlServer.xml
+C:\Git_HostLog\HostLog\HostLogserver\ChatServidor\obj\x86\Debug\ChatServidor.csprojResolveAssemblyReference.cache
+C:\Git_HostLog\HostLog\HostLogserver\ChatServidor\obj\x86\Debug\ChatServidor.Form1.resources
+C:\Git_HostLog\HostLog\HostLogserver\ChatServidor\obj\x86\Debug\ChatServidor.Properties.Resources.resources
+C:\Git_HostLog\HostLog\HostLogserver\ChatServidor\obj\x86\Debug\ChatServidor.csproj.GenerateResource.Cache
+C:\Git_HostLog\HostLog\HostLogserver\ChatServidor\obj\x86\Debug\ChatServidor.csproj.CoreCompileInputs.cache
+C:\Git_HostLog\HostLog\HostLogserver\ChatServidor\obj\x86\Debug\ChatServidor.exe
+C:\Git_HostLog\HostLog\HostLogserver\ChatServidor\obj\x86\Debug\ChatServidor.pdb
+C:\Git_HostLog\HostLog\HostLogserver\ChatServidor\bin\Debug\ChatServidor.pdb

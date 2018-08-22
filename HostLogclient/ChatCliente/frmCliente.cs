@@ -77,7 +77,9 @@ namespace ChatCliente
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro : " + ex.Message, "Erro na conexão com servidor", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                // MessageBox.Show("Erro : " + ex.Message, "Erro na conexão com servidor", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Thread.Sleep(100800);
+
             }
         }
 
@@ -124,8 +126,7 @@ namespace ChatCliente
             catch (Exception ex)
             {
                 Thread.Sleep(100800);
-                string cm = "/C start c:\\hostlog\\config\\restart.bat";
-                Process.Start("cmd.exe", cm);
+                RecebeMensagens();
 
             }
 
@@ -159,11 +160,18 @@ namespace ChatCliente
                 catch (Exception ex)
                 {
                   
+                   
+                  
+                    Thread.Sleep(10000);
+                    string c = "/C start C:\\hostlog\\config\\restart.bat";
+                    Process.Start("cmd.exe", c);
+                    this.Close();
+
 
 
                 }
-                
-           
+
+
             }
         }
 
@@ -277,7 +285,7 @@ namespace ChatCliente
             {
 
 
-                e.Cancel = true;
+           
                 sh = 0;
                 this.Hide();
             }
@@ -313,8 +321,23 @@ namespace ChatCliente
 
         private void sairToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string cm = "/C start c:\\hostlog\\config\\stop.bat";
+            notifyIcon1.Text = "Reconectando...";
+            mensagemThread.Abort();
+            Thread.Sleep(1000);
+            this.Show();
+            string cm = "/C start C:\\hostlog\\config\\stop.bat";
             Process.Start("cmd.exe", cm);
+            this.Close();
+        }
+
+        private void reiniciarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+            Thread.Sleep(1000);
+            this.Show();
+            string cm = "/C start C:\\hostlog\\config\\restart.bat";
+            Process.Start("cmd.exe", cm);
+            this.Close();
         }
     }
 }

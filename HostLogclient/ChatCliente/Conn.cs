@@ -54,13 +54,14 @@ namespace ChatCliente
 
 
 
-
+                
 
 
             }
             catch (Exception ex)
             {
-               // MessageBox.Show("Erro : " + ex.Message, "Erro na conexão com servidor", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Thread.Sleep(10000);
+                InicializaConexao();
             }
         }
 
@@ -107,9 +108,19 @@ namespace ChatCliente
 
 
             // Fecha os objetos
-            Conectado = false;
-            stwEnviador.Close();
-            tcpServidor.Close();
+            try
+            {
+                Conectado = false;
+                stwEnviador.Close();
+                tcpServidor.Close();
+
+            }
+            catch(Exception ex)
+            {
+                Thread.Sleep(10000);
+                FechaConexao();
+            }
+          
         }
 
 
@@ -138,8 +149,7 @@ namespace ChatCliente
 
 
                 Thread.Sleep(100800);
-                string cm = "/C start c:\\hostlog\\config\\restart.bat";
-                Process.Start("cmd.exe", cm);
+                comunica();
 
             }
           

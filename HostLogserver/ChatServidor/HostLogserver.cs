@@ -87,7 +87,7 @@ namespace ChatServidor
             if (htConexoes[tcpUsuario] != null)
             {
                 // Primeiro mostra a informação e informa os outros usuários sobre a conexão
-                EnviaMensagemAdmin(htConexoes[tcpUsuario] + " Desconectou");
+               EnviaMensagemAdmin(htConexoes[tcpUsuario] + " Desconectou");
 
                 // Removeo usuário da hash table
                 HostLogserver.htUsuarios.Remove(HostLogserver.htConexoes[tcpUsuario]);
@@ -300,8 +300,10 @@ namespace ChatServidor
             }
             catch
             {
-                // Se houve um problema com este usuário desconecta-o
-               // ChatServidor.RemoveUsuario(tcpCliente);
+                HostLogserver.RemoveUsuario(tcpCliente);
+                //      Se houve um problema com este usuário desconecta-o
+                //  ChatServidor.RemoveUsuario();
+
             }
         }
 

@@ -1,4 +1,5 @@
 echo off
-taskkill /f /im chatcliente.exe
-start C:\Git_HostLog\HostLog\HostLogclient\ChatCliente\bin\Debug\ChatCliente.exe 
+taskkill /f /im chatClient.exe
+
+start C:\hostlog\config\start.bat
 exit
