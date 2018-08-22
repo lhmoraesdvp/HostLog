@@ -23,10 +23,3 @@ textarea {
     max-width: 280px;
 }
 
-.circulo1 {
-    background: radial-gradient(circle closest-side,#f00 0%,#f00 98%,rgba(0,0,0,0) 100%);
-    width: 20px;
-    height: 20px;
-    float: left;
-    margin: 10px
-}

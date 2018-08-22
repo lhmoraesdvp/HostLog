@@ -261,7 +261,6 @@ C:\Users\luis.moraes\Documents\GitHub\HostLog\HostMonitor\HostMonitor\obj\Debug\
 C:\Users\luis.moraes\Documents\GitHub\HostLog\HostMonitor\HostMonitor\obj\Debug\HostMonitor.csproj.CopyComplete
 C:\Users\luis.moraes\Documents\GitHub\HostLog\HostMonitor\HostMonitor\obj\Debug\HostMonitor.dll
 C:\Users\luis.moraes\Documents\GitHub\HostLog\HostMonitor\HostMonitor\obj\Debug\HostMonitor.pdb
-C:\Users\luis.moraes\Documents\GitHub\HostLog\HostMonitor\HostMonitor\obj\Debug\HostMonitor.csprojAssemblyReference.cache
 C:\Git_HostLog\HostLog\HostMonitor\HostMonitor\bin\ApplicationInsights.config
 C:\Git_HostLog\HostLog\HostMonitor\HostMonitor\bin\HostMonitor.dll.config
 C:\Git_HostLog\HostLog\HostMonitor\HostMonitor\bin\HostMonitor.dll
@@ -393,3 +392,4 @@ C:\Git_HostLog\HostLog\HostMonitor\HostMonitor\obj\Debug\HostMonitor.csprojResol
 C:\Git_HostLog\HostLog\HostMonitor\HostMonitor\obj\Debug\HostMonitor.csproj.CoreCompileInputs.cache
 C:\Git_HostLog\HostLog\HostMonitor\HostMonitor\obj\Debug\HostMonitor.dll
 C:\Git_HostLog\HostLog\HostMonitor\HostMonitor\obj\Debug\HostMonitor.pdb
+C:\Users\luis.moraes\Documents\GitHub\HostLog\HostMonitor\HostMonitor\obj\Debug\HostMonitor.csprojAssemblyReference.cache

@@ -216,19 +216,26 @@
     {
         <tr>
             <td>
-                @if (online(item.hostComunication)==1)
+                
+                @if (online(item.hostComunication) == 1)
                 {
-                    <div id="circulo1" title="Online"></div>
+                    int ij = online(item.hostComunication);
+                    <div id="circulo2" title="Online"></div>
+                    int i = online(item.hostComunication);
                 }
                 else
                 {
                     if (online(item.hostComunication) == 2)
                     {
-                        <div id="circulo2"  title="Alerta"></div>
+                        int ij = online(item.hostComunication);
+                        <div id="circulo2" title="Alerta"></div>
+                        int i = online(item.hostComunication);
                     }
                     else
                     {
-                        <div id="circulo3"  title="Offline"></div>
+                        int ij = online(item.hostComunication);
+                        <div id="circulo3" title="Offline"></div>
+                        int i = online(item.hostComunication);
                     }
 
 
