@@ -3,7 +3,7 @@
   <config>
     <ccid>4</ccid>
     <ccname>Meu centro de custo</ccname>
-    <serverip>-</serverip>
+    <ipserver>10.11.5.105</ipserver>
     <servername>-</servername>
     <time>-</time>
     <device>-</device>

@@ -15,3 +15,4 @@ C:\Git_HostLog\HostLog\HostLogclient\ChatCliente\obj\x86\Debug\HostLog Client.cs
 C:\Git_HostLog\HostLog\HostLogclient\ChatCliente\obj\x86\Debug\HostLog Client.csproj.CoreCompileInputs.cache
 C:\Git_HostLog\HostLog\HostLogclient\ChatCliente\obj\x86\Debug\ChatCliente.exe
 C:\Git_HostLog\HostLog\HostLogclient\ChatCliente\obj\x86\Debug\ChatCliente.pdb
+C:\Users\luis.moraes\Documents\GitHub\HostLog\HostLogclient\ChatCliente\obj\x86\Debug\HostLog Client.csprojAssemblyReference.cache

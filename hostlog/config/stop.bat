@@ -1,3 +1,3 @@
 echo off
-taskkill /f /im chatClient.exe
+taskkill /f /im chatcliente.exe
 exit

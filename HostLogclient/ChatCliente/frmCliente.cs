@@ -339,5 +339,12 @@ namespace ChatCliente
             Process.Start("cmd.exe", cm);
             this.Close();
         }
+
+        private void configuraçõesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string cm = "/C C:\\hostlog\\config\\config.xml";
+            Process.Start("cmd.exe", cm);
+
+        }
     }
 }

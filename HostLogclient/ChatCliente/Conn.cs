@@ -27,6 +27,8 @@ namespace ChatCliente
         public StreamWriter stwEnviador;
         Hostprop hostprop = new Hostprop();
         public Boolean Conectado = false;
+        public Config.Hostparm hp = new Hostparm();
+
         public Hostprop GetHostprop()
         {
             return hostprop;
@@ -35,8 +37,12 @@ namespace ChatCliente
         {
             try
             {
+
+
                 // Trata o endereço IP informado em um objeto IPAdress
-                enderecoIP = IPAddress.Parse("192.168.15.15");
+               
+                enderecoIP = IPAddress.Parse(hp.ipserver);
+             
             //    MessageBox.Show(enderecoIP.ToString());
                 // Inicia uma nova conexão TCP com o servidor chat
                 tcpServidor = new TcpClient();
