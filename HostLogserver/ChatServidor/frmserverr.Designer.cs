@@ -36,6 +36,7 @@
             // 
             // txtLog
             // 
+            this.txtLog.Enabled = false;
             this.txtLog.Location = new System.Drawing.Point(13, 64);
             this.txtLog.Multiline = true;
             this.txtLog.Name = "txtLog";
@@ -82,6 +83,7 @@
             this.Controls.Add(this.txtLog);
             this.Name = "Form1";
             this.Text = "HostLogserver";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

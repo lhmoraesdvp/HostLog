@@ -85,6 +85,7 @@
             // 
             // mostrarToolStripMenuItem
             // 
+            this.mostrarToolStripMenuItem.Enabled = false;
             this.mostrarToolStripMenuItem.Name = "mostrarToolStripMenuItem";
             this.mostrarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.mostrarToolStripMenuItem.Text = "Mostrar";

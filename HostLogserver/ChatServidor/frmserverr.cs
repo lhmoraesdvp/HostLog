@@ -11,10 +11,25 @@ namespace ChatServidor
         public Form1()
         {
             InitializeComponent();
+            ip = Dns.GetHostAddresses(Dns.GetHostName());
+            try
+            {
+              
+                string hostip = ip[3].ToString();
+                txtIP.Text = hostip;
+            }catch(Exception ex)
+            {
+                string hostip = ip[1].ToString();
+                txtIP.Text = hostip;
+            }
+          
         }
 
+        IPAddress[] ip;
         private void btnAtender_Click(object sender, System.EventArgs e)
         {
+          
+
             if (txtIP.Text==string.Empty)
             {
                 MessageBox.Show("Informe o endereço IP.");
@@ -56,6 +71,11 @@ namespace ChatServidor
         {
             // Atualiza o logo com mensagens
             txtLog.AppendText(strMensagem + "\r\n");
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

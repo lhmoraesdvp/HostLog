@@ -140,7 +140,7 @@ namespace ChatCliente
                 {
 
 
-                    sh = 1;
+                    sh = 0;
                     string msg = strReceptor.ReadLine();
 
                     string u = conection.GetHostprop().getmac();
@@ -159,13 +159,20 @@ namespace ChatCliente
                 }
                 catch (Exception ex)
                 {
-                  
+                    Thread.Sleep(10000);
+                    System.Diagnostics.Process pr = new Process();
+                    pr.StartInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
+                    pr.StartInfo.UseShellExecute = false;
+                    pr.StartInfo.CreateNoWindow = true;
+                    pr.StartInfo.FileName = "cmd.exe";
+                    pr.StartInfo.Arguments = "/C start C:\\hostlog\\config\\restart.exe";
+
+                    pr.Start();
+
+
+
                    
                   
-                    Thread.Sleep(10000);
-                    string c = "/C start C:\\hostlog\\config\\restart.bat";
-                    Process.Start("cmd.exe", c);
-                    this.Close();
 
 
 
@@ -246,7 +253,7 @@ namespace ChatCliente
         private void AtualizaLog(string strMensagem)
         {
             // Anexa texto ao final de cada linha
-            sh = 1;
+            sh = 0;
          
             txtLog.AppendText(strMensagem + "\r\n");
         }
@@ -324,17 +331,28 @@ namespace ChatCliente
             notifyIcon1.Text = "Reconectando...";
             mensagemThread.Abort();
             Thread.Sleep(1000);
-            this.Show();
-            string cm = "/C start C:\\hostlog\\config\\stop.bat";
-            Process.Start("cmd.exe", cm);
-            this.Close();
+           
+            System.Diagnostics.Process pr = new Process();
+            pr.StartInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
+            pr.StartInfo.UseShellExecute = false;
+            pr.StartInfo.CreateNoWindow = true;
+            pr.StartInfo.FileName = "cmd.exe";
+            pr.StartInfo.Arguments = "/C start C:\\hostlog\\config\\stop.exe";
+
+
+
+          
+          
+            pr.Start();
+           
+        
         }
 
         private void reiniciarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             
             Thread.Sleep(1000);
-            this.Show();
+          ;
             string cm = "/C start C:\\hostlog\\config\\restart.bat";
             Process.Start("cmd.exe", cm);
             this.Close();
@@ -343,7 +361,15 @@ namespace ChatCliente
         private void configuraçõesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             string cm = "/C C:\\hostlog\\config\\config.xml";
-            Process.Start("cmd.exe", cm);
+        
+            System.Diagnostics.Process pr = new Process();
+           pr.StartInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
+            pr.StartInfo.UseShellExecute = false;
+            pr.StartInfo.CreateNoWindow = true;
+            pr.StartInfo.FileName = "cmd.exe";
+            pr.StartInfo.Arguments = "/C C:\\hostlog\\config\\config.xml";
+
+            pr.Start();
 
         }
     }
