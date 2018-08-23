@@ -24,6 +24,7 @@ namespace HostMonitor.Controllers
         }
 
         // GET: Devices/Details/5
+        [Authorize(Roles = "administrador")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -39,6 +40,7 @@ namespace HostMonitor.Controllers
         }
 
         // GET: Devices/Create
+        [Authorize(Roles = "administrador")]
         public ActionResult Create()
         {
             return View();
@@ -62,6 +64,7 @@ namespace HostMonitor.Controllers
         }
 
         // GET: Devices/Edit/5
+        [Authorize(Roles = "administrador")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -93,6 +96,7 @@ namespace HostMonitor.Controllers
         }
 
         // GET: Devices/Delete/5
+        [Authorize(Roles = "administrador")]
         public ActionResult Delete(int? id)
         {
             if (id == null)

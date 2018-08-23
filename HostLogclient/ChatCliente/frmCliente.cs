@@ -352,7 +352,7 @@ namespace ChatCliente
         {
             
             Thread.Sleep(1000);
-          ;
+    
             string cm = "/C start C:\\hostlog\\config\\restart.bat";
             Process.Start("cmd.exe", cm);
             this.Close();
@@ -370,7 +370,8 @@ namespace ChatCliente
             pr.StartInfo.Arguments = "/C C:\\hostlog\\config\\config.xml";
 
             pr.Start();
-
+         
+           
         }
     }
 }

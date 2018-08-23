@@ -37,6 +37,7 @@ namespace HostMonitor.Controllers
         }
 
         // GET: HostGroups/Create
+        [Authorize(Roles = "administrador")]
         public ActionResult Create()
         {
             return View();
@@ -60,6 +61,7 @@ namespace HostMonitor.Controllers
         }
 
         // GET: HostGroups/Edit/5
+        [Authorize(Roles = "administrador")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -91,6 +93,7 @@ namespace HostMonitor.Controllers
         }
 
         // GET: HostGroups/Delete/5
+        [Authorize(Roles = "administrador")]
         public ActionResult Delete(int? id)
         {
             if (id == null)

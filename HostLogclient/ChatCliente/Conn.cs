@@ -144,7 +144,7 @@ namespace ChatCliente
                 {
 
 
-                    stwEnviador.WriteLine(hostprop.hostname + "!!" + hostprop.hostip + "!!" + "1" + "!!" + hostprop.hostso + "!!" + data + "!!" + hostprop.hostuser + "!!" + hostprop.hostserial + "!!" + hostprop.hosthdmemory + "!!" + hostprop.hosthdmermoryfree + "!!" + hostprop.hostram + "!!" + hostprop.hostprocessador + "core" + "!!" + "SP" + "!!" + hostprop.hostmac + "!!" + "BR" + "!!" + "4" + "!!");
+                    stwEnviador.WriteLine(hostprop.hostname + "!!" + hostprop.hostip + "!!" + "1" + "!!" + hostprop.hostso + "!!" + data + "!!" + hostprop.hostuser + "!!" + hostprop.hostserial + "!!" + hostprop.hosthdmemory + "!!" + hostprop.hosthdmermoryfree + "!!" + hostprop.hostram + "!!" + hostprop.hostprocessador + "core" + "!!" + "SP" + "!!" + hostprop.hostmac + "!!" + "BR" + "!!" + hp.cid + "!!");
                     stwEnviador.Flush();
                 }
 

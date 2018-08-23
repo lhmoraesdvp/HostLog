@@ -216,7 +216,7 @@
     {
         <tr>
             <td>
-                
+
                 @if (online(item.hostComunication) == 1)
                 {
                     int ij = online(item.hostComunication);
@@ -274,14 +274,37 @@
                 @Html.DisplayFor(modelItem => item.hostState)
             </td>
 
-            <td>
-                @Html.ActionLink("Editar", "Edit", new { id = item.hostId }) |
-                @Html.ActionLink("Detalhes", "Details", new { id = item.hostId }) |
-                @Html.ActionLink("Apagar", "Delete", new { id = item.hostId })
-            </td>
-        </tr>
-    }
+            @if (Request.IsAuthenticated)
+            {
+                if (User.IsInRole("administrador"))
+                {
 
+
+                    <td>
+                        @Html.ActionLink("Editar", "Edit", new { id = item.hostId }) |
+                        @Html.ActionLink("Detalhes", "Details", new { id = item.hostId }) |
+                        @Html.ActionLink("Apagar", "Delete", new { id = item.hostId })
+                    </td>
+
+                }
+                else
+                {
+
+
+
+                    <td>
+
+                        @Html.ActionLink("Detalhes", "Details", new { id = item.hostId })
+
+                    </td>
+
+
+                }
+
+            }
+        </tr>    }
+            
+      
 </table>
 
 

@@ -22,6 +22,7 @@ namespace HostMonitor.Controllers
         }
 
         // GET: centroDeCustoes/Details/5
+        [Authorize(Roles = "administrador")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -37,6 +38,7 @@ namespace HostMonitor.Controllers
         }
 
         // GET: centroDeCustoes/Create
+        [Authorize(Roles = "administrador")]
         public ActionResult Create()
         {
             return View();
@@ -60,6 +62,7 @@ namespace HostMonitor.Controllers
         }
 
         // GET: centroDeCustoes/Edit/5
+        [Authorize(Roles = "administrador")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -91,6 +94,7 @@ namespace HostMonitor.Controllers
         }
 
         // GET: centroDeCustoes/Delete/5
+        [Authorize(Roles = "administrador")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
