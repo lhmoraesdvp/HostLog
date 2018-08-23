@@ -1,75 +1,10 @@
 <?xml version="1.0"?>
 <configs>
   <config>
-    <ccid>4</ccid>
-    <ccname>Meu centro de custo</ccname>
-    <ipserver>10.11.5.105</ipserver>
-    <servername>-</servername>
-    <time>-</time>
-    <device>-</device>
-    <devicename>-</devicename>
-  </config>
-  <config>
-    <ccid>2004</ccid>
-    <ccname>luis</ccname>
-    <serverip>-</serverip>
-    <servername>-</servername>
-    <time>-</time>
-    <device>-</device>
-    <devicename>-</devicename>
-  </config>
-  <config>
-    <ccid>2005</ccid>
-    <ccname>ghyt</ccname>
-    <serverip>-</serverip>
-    <servername>-</servername>
-    <time>-</time>
-    <device>-</device>
-    <devicename>-</devicename>
-  </config>
-  <config>
-    <ccid>-</ccid>
-    <ccname>-</ccname>
-    <serverip>-</serverip>
-    <servername>-</servername>
-    <time>-</time>
-    <device>1</device>
-    <devicename>Dispositivo Movel</devicename>
-  </config>
-  <config>
-    <ccid>-</ccid>
-    <ccname>-</ccname>
-    <serverip>-</serverip>
-    <servername>-</servername>
-    <time>-</time>
-    <device>2</device>
-    <devicename>PC</devicename>
-  </config>
-  <config>
-    <ccid>-</ccid>
-    <ccname>-</ccname>
-    <serverip>-</serverip>
-    <servername>-</servername>
-    <time>-</time>
-    <device>3</device>
-    <devicename>IPAD</devicename>
-  </config>
-  <config>
-    <ccid>-</ccid>
-    <ccname>-</ccname>
-    <serverip>-</serverip>
-    <servername>-</servername>
-    <time>-</time>
-    <device>4</device>
-    <devicename>teste</devicename>
-  </config>
-  <config>
-    <ccid>-</ccid>
-    <ccname>-</ccname>
-    <serverip>-</serverip>
-    <servername>-</servername>
-    <time>-</time>
-    <device>1002</device>
-    <devicename>TV</devicename>
+    
+    <ipserver>192.168.15.15</ipserver>
+	 <centro>30093</centro>
+	  <cid>3005</cid>
+  
   </config>
 </configs>
