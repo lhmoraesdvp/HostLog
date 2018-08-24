@@ -1,0 +1,55 @@
+﻿@model IEnumerable<HostMonitor.Models.Menssagem>
+
+@{
+    ViewBag.Title = "Menssagens";
+}
+
+<h2>Menssagens</h2>
+
+<p>
+    @Html.ActionLink("Criar", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Status")
+        </th>
+        <th>
+            @Html.DisplayName("Data")
+        </th>
+        <th>
+            @Html.DisplayName("Usuario")
+        </th>
+        <th>
+            @Html.DisplayName("Menssagem")
+        </th>
+
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.status)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dataHora)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.usuario)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.menssagem1)
+        </td>
+
+
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.idMenssagem }) |
+            @Html.ActionLink("Details", "Details", new { id = item.idMenssagem }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.idMenssagem })
+        </td>
+    </tr>
+}
+
+</table>

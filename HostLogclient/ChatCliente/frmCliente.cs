@@ -78,7 +78,7 @@ namespace ChatCliente
             catch (Exception ex)
             {
                 // MessageBox.Show("Erro : " + ex.Message, "Erro na conexão com servidor", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Thread.Sleep(100800);
+                
 
             }
         }

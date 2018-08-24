@@ -203,6 +203,7 @@
     <Compile Include="Controllers\HostGroupsController.cs" />
     <Compile Include="Controllers\HostsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MenssagemsController.cs" />
     <Compile Include="Controllers\SubGroupsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -215,6 +216,7 @@
     <Compile Include="Models\HostGroup.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Menssagem.cs" />
     <Compile Include="Models\SubGroup.cs" />
     <Compile Include="Models\sysdiagrams.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -225,6 +227,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\jquery-ui.css" />
     <Content Include="Content\st.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -241,6 +244,7 @@
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-ui.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -302,6 +306,11 @@
     <Content Include="Views\Hosts\Details.cshtml" />
     <Content Include="Views\Hosts\Edit.cshtml" />
     <Content Include="Views\Hosts\Index.cshtml" />
+    <Content Include="Views\Menssagems\Create.cshtml" />
+    <Content Include="Views\Menssagems\Delete.cshtml" />
+    <Content Include="Views\Menssagems\Details.cshtml" />
+    <Content Include="Views\Menssagems\Edit.cshtml" />
+    <Content Include="Views\Menssagems\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -16,11 +16,26 @@ namespace HostMonitor.Models
         public virtual DbSet<Devices> Devices { get; set; }
         public virtual DbSet<Host> Host { get; set; }
         public virtual DbSet<HostGroup> HostGroup { get; set; }
+        public virtual DbSet<Menssagem> Menssagem { get; set; }
         public virtual DbSet<SubGroup> SubGroup { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Menssagem>()
+                .Property(e => e.dataHora)
+                .IsFixedLength();
+
+            modelBuilder.Entity<Menssagem>()
+                .Property(e => e.c0)
+                .IsFixedLength();
+
+            modelBuilder.Entity<Menssagem>()
+                .Property(e => e.c01)
+                .IsFixedLength();
+
+            modelBuilder.Entity<Menssagem>()
+                .Property(e => e.c02)
+                .IsFixedLength();
         }
     }
 }

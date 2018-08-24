@@ -1,0 +1,122 @@
+﻿@model HostMonitor.Models.Menssagem
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Menssagem</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.idGrupo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idGrupo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.idSubgrupo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idSubgrupo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.idCentro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idCentro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.usuario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.usuario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dataHora)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dataHora)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.menssagem1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.menssagem1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.c0)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.c0)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.c01)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.c01)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.c02)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.c02)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.i0)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.i0)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.i01)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.i01)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.i02)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.i02)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idMenssagem }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

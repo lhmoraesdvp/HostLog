@@ -1,0 +1,212 @@
+﻿@model HostMonitor.Models.Menssagem
+
+@{
+    ViewBag.Title = "Enviar Menssagem";
+    HostMonitor.Models.Db l = new HostMonitor.Models.Db();
+    var lgroups = l.HostGroup.Select(c => new { c.groupId, c.groupName }).ToList();
+
+    List<HostMonitor.Models.SubGroup> lsubGroups(int group)
+    {
+        List<HostMonitor.Models.SubGroup> lsg = l.SubGroup.Where(c => c.sGroup == group).ToList();
+
+        return lsg;
+    }
+    List<HostMonitor.Models.centroDeCusto> lcentro(int su)
+    {
+        List<HostMonitor.Models.centroDeCusto> lsc = l.centroDeCusto.Where(c => c.ccSubGroup == 10).ToList();
+        return lsc;
+    }
+
+    List<Object> lst = new List<Object>
+    {
+
+
+    };
+
+    for (int i = 0; i < lgroups.Count; i++)
+    {
+        lst.Add(new { value = lgroups[i].groupId, text = lgroups[i].groupName });
+
+    }
+
+    List<Object> lstsub()
+    {
+        var lss = lsubGroups(10);
+
+        List<Object> lsts = new List<object>
+        {
+
+
+        };
+
+        for (int i = 0; i < lss.Count; i++)
+        {
+            lsts.Add(new { value = lss[i].subgId, text = lss[i].subgroupName });
+
+        }
+
+        return lsts;
+
+    };
+
+
+
+
+    List<Object> lstcentro()
+    {
+        var lcc = lcentro(9);
+
+        List<Object> lstcc = new List<object>
+        {
+
+
+        };
+
+        for (int i = 0; i < lcc.Count; i++)
+        {
+            lstcc.Add(new { value = lcc[i].ccId, text = lcc[i].ccName });
+
+        }
+
+        return lstcc;
+
+    };
+
+
+    for (int i = 0; i < lgroups.Count; i++)
+    {
+        lst.Add(new { value = lgroups[i].groupId, text = lgroups[i].groupName });
+
+    }
+
+
+    <h2>Menssagens</h2>
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Enviar Menssagem</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+        <div class="form-group">
+            @Html.Label("Grupo", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.idGrupo, new SelectList(lst, "value", "text", 0), htmlAttributes: new { @id = "control-label col-md-2" })
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Sub Grupo", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.idSubgrupo, new SelectList(lstsub(), "value", "text", 0), htmlAttributes: new { @id = "control-label col-md-2" })
+
+            </div>
+        </div>
+
+        <div class="form-group">
+
+            <div id="circle"></div>
+
+            <fieldset>
+                <label for="radius">Circle radius</label>
+                <select name="radius" id="radius">
+                    <option value="50">50px</option>
+                    <option value="100">100px</option>
+                    <option value="150" selected="selected">150px</option>
+                    <option value="200">200px</option>
+                    <option value="250">250px</option>
+                </select>
+            </fieldset>
+        </div>
+
+
+
+        @Html.Label("Centro de Custo", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.idSubgrupo, new SelectList(lstcentro(), "value", "text", 0))
+
+        </div>
+    </div>
+
+
+
+
+
+    <div class="form-group">
+        @Html.Label("Menssagem", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.menssagem1, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.menssagem1, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Enviar" class="btn btn-default" />
+        </div>
+    </div>
+
+}
+
+<div>
+    @Html.ActionLink("Voltar", "Index")
+</div>
+
+@section Scripts {
+
+
+
+
+
+
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script type="text/javascript"
+            src="~/Scripts/jquery-ui.js">
+
+    </script>
+
+
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            alert("teste")
+
+
+
+
+
+
+            
+
+            $("#radius").change({
+                change: function (event, data) {
+                  alert("teste")
+                }
+            });
+
+
+
+
+
+        });
+
+    </script>
+
+
+
+
+
+
+
+
+}
