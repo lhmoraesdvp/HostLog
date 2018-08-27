@@ -4,7 +4,7 @@
     ViewBag.Title = "Enviar Menssagem";
     HostMonitor.Models.Db l = new HostMonitor.Models.Db();
     var lgroups = l.HostGroup.Select(c => new { c.groupId, c.groupName }).ToList();
-
+    var g = 0;
     List<HostMonitor.Models.SubGroup> lsubGroups(int group)
     {
         List<HostMonitor.Models.SubGroup> lsg = l.SubGroup.Where(c => c.sGroup == group).ToList();
@@ -28,10 +28,15 @@
         lst.Add(new { value = lgroups[i].groupId, text = lgroups[i].groupName });
 
     }
-
-    List<Object> lstsub()
+    List<Object> lssub = new List<object>
     {
-        var lss = lsubGroups(10);
+
+
+    };
+
+    List<Object> lstsub(int gp)
+    {
+        var lss = lsubGroups(gp);
 
         List<Object> lsts = new List<object>
         {
@@ -44,7 +49,7 @@
             lsts.Add(new { value = lss[i].subgId, text = lss[i].subgroupName });
 
         }
-
+        lssub = lsts;
         return lsts;
 
     };
@@ -81,6 +86,7 @@
 
 
     <h2>Menssagens</h2>
+    <link href="@Url.Content("~/Content/jquery-ui.css")" rel="stylesheet" type="text/css" />
 }
 
 @using (Html.BeginForm())
@@ -96,7 +102,7 @@
         <div class="form-group">
             @Html.Label("Grupo", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.idGrupo, new SelectList(lst, "value", "text", 0), htmlAttributes: new { @id = "control-label col-md-2" })
+                @Html.DropDownListFor(model => model.idGrupo, new SelectList(lst, "value", "text", 0), htmlAttributes: new { @id = "lsgrupo" })
 
             </div>
         </div>
@@ -104,49 +110,32 @@
         <div class="form-group">
             @Html.Label("Sub Grupo", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.idSubgrupo, new SelectList(lstsub(), "value", "text", 0), htmlAttributes: new { @id = "control-label col-md-2" })
+                @Html.DropDownListFor(model => model.idSubgrupo, new SelectList(lssub, "value", "text", 0), htmlAttributes: new { @id = "radiu" })
+
+            </div>
+        </div>
+        <div class="form-group">
+
+
+            @Html.Label("Centro de Custo", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.idSubgrupo, new SelectList(lstcentro(), "value", "text", 0), htmlAttributes: new { @id = "lscentro" })
+
 
             </div>
         </div>
 
+
         <div class="form-group">
 
-            <div id="circle"></div>
-
-            <fieldset>
-                <label for="radius">Circle radius</label>
-                <select name="radius" id="radius">
-                    <option value="50">50px</option>
-                    <option value="100">100px</option>
-                    <option value="150" selected="selected">150px</option>
-                    <option value="200">200px</option>
-                    <option value="250">250px</option>
-                </select>
-            </fieldset>
+            @Html.Label("Menssagem", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.menssagem1, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.menssagem1, "", new { @class = "text-danger" })
+            </div>
         </div>
 
-
-
-        @Html.Label("Centro de Custo", htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.DropDownListFor(model => model.idSubgrupo, new SelectList(lstcentro(), "value", "text", 0))
-
-        </div>
     </div>
-
-
-
-
-
-    <div class="form-group">
-        @Html.Label("Menssagem", htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.menssagem1, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.menssagem1, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-
 
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
@@ -155,6 +144,7 @@
     </div>
 
 }
+
 
 <div>
     @Html.ActionLink("Voltar", "Index")
@@ -172,33 +162,73 @@
     <script type="text/javascript"
             src="~/Scripts/jquery-ui.js">
 
+
     </script>
 
 
+   
+        <script type="text/javascript">
 
-    <script type="text/javascript">
+            $("#radius").selectmenu();
 
-        $(document).ready(function () {
-            alert("teste")
-
-
-
+                    $(document).ready(function () {
 
 
 
-            
 
-            $("#radius").change({
+                        var circle = $("#circl");
+
+                        $("#radiu").selectmenu({
                 change: function (event, data) {
-                  alert("teste")
-                }
+
+                alert("ok")
+
+            }
             });
 
+                        $("#lsgrupo").selectmenu({
+                change: function (event, data) {
+
+                alert(data.item.value)
+                                var v = data.item.value;
+            var i = 0;
+            var lsb = lsubGroups(v);
 
 
 
 
-        });
+
+
+                                $('#radiu').append($('<option>', {
+                value: 1,
+            text: "item"
+        }));
+
+
+        $("#radiu").selectmenu("refresh");
+}
+});
+
+                        $("#lscentro").selectmenu({
+                    change: function (event, data) {
+
+                    alert("ok")
+
+                }
+                })
+
+
+                        /*   $("#radius").change({
+                    change: function (event, data) {
+                    alert("teste")
+                }
+                });
+
+
+        */
+
+
+         });
 
     </script>
 
