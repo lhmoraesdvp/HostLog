@@ -5,6 +5,7 @@
     HostMonitor.Models.Db l = new HostMonitor.Models.Db();
     var lgroups = l.HostGroup.Select(c => new { c.groupId, c.groupName }).ToList();
     var g = 0;
+    var ccc = 0;
     List<HostMonitor.Models.SubGroup> lsubGroups(int group)
     {
         List<HostMonitor.Models.SubGroup> lsg = l.SubGroup.Where(c => c.sGroup == group).ToList();
@@ -161,74 +162,88 @@
 
     <script type="text/javascript"
             src="~/Scripts/jquery-ui.js">
+    </script>
+
+
+
+    <script src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.js")" type="text/javascript"></script>
+
+
+
+
+    <script type="text/jscript">
+
+
 
 
     </script>
 
 
-   
-        <script type="text/javascript">
 
-            $("#radius").selectmenu();
+    <script type="text/javascript">
 
-                    $(document).ready(function () {
+           $("#radius").selectmenu();
 
-
+    $(document).ready(function () {
 
 
-                        var circle = $("#circl");
 
-                        $("#radiu").selectmenu({
-                change: function (event, data) {
+
+        var circle = $("#circl");
+
+        $("#radiu").selectmenu({
+            change: function (event, data) {
 
                 alert("ok")
 
             }
-            });
+        });
 
-                        $("#lsgrupo").selectmenu({
-                change: function (event, data) {
-
+        $("#lsgrupo").selectmenu({
+            change: function (event, data) {
+                var h = data.item.value;
                 alert(data.item.value)
-                                var v = data.item.value;
-            var i = 0;
-            var lsb = lsubGroups(v);
 
+                  var url = "/Menssagems/altergp";
 
-
-
-
-
-                                $('#radiu').append($('<option>', {
-                value: 1,
-            text: "item"
-        }));
-
-
-        $("#radiu").selectmenu("refresh");
-}
-});
-
-                        $("#lscentro").selectmenu({
-                    change: function (event, data) {
-
-                    alert("ok")
-
-                }
-                })
-
-
-                        /*   $("#radius").change({
-                    change: function (event, data) {
-                    alert("teste")
-                }
+    $.post(url, { i: h}, function (data) {
+    
+        alert(data)
                 });
 
 
-        */
 
 
-         });
+
+                var v = data.item.value;
+                var i = 0;
+                var lsb = lsubGroups(v);
+
+
+           
+            }
+        });
+
+        $("#lscentro").selectmenu({
+            change: function (event, data) {
+
+                alert("ok")
+
+            }
+        })
+
+
+        /*   $("#radius").change({
+    change: function (event, data) {
+    alert("teste")
+}
+});
+
+
+*/
+
+
+    });
 
     </script>
 

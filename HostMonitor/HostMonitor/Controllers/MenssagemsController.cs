@@ -20,6 +20,19 @@ namespace HostMonitor.Controllers
             return View(db.Menssagem.ToList());
         }
 
+
+        [HttpPost]
+        public string altergp(string i)
+        {
+
+            int u = Convert.ToInt32(i);
+            return i;
+        
+
+
+        }
+
+
         // GET: Menssagems/Details/5
         public ActionResult Details(int? id)
         {
