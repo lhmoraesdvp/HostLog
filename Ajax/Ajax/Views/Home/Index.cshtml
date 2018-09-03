@@ -1,0 +1,54 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+
+<body>
+    <p>
+        @{
+
+
+        }
+
+        @{
+            @Html.Partial("_st");
+
+        }
+        Informe seu nome
+        <br />
+        @Html.TextBox("Nome")
+    </p>
+    <p>
+        Informe seu endereço
+        <br />
+        @Html.TextBox("Endereco")
+    </p>
+    <input type="button" value="Salvar" id="Salvar" />
+    <span id="msg" style="color:red;" />
+</body>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.js")" type="text/javascript"></script>
+    <script type="text/javascript">
+        $('#Salvar').click(function () {
+            var url = "/Home/st";
+            var nome = $("#Nome").val();
+            var endereco = $("#Endereco").val();
+            $.post(url, {  }, function (data) {
+                 
+
+
+
+            });
+        })
+    </script>
+
+
+    <script type="text/javascript"
+            src="~/Scripts/jquery-ui.js">
+    </script>
+
+
+}

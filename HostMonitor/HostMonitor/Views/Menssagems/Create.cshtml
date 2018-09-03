@@ -105,8 +105,12 @@
             <div class="col-md-10">
                 @Html.DropDownListFor(model => model.idGrupo, new SelectList(lst, "value", "text", 0), htmlAttributes: new { @id = "lsgrupo" })
 
+                <br />
+                <br/>
             </div>
         </div>
+
+        
 
         <div class="form-group">
             @Html.Label("Sub Grupo", htmlAttributes: new { @class = "control-label col-md-2" })
