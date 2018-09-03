@@ -12,7 +12,7 @@
     <div class="form-group">
         @Html.Label("Grupo", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.DropDownList("i", new SelectList(Model.grupos, "id", "nome", 0), htmlAttributes: new { @id = "radiu" })
+            @Html.DropDownList("i", new SelectList(Model.grupos, "id", "nome", 0), htmlAttributes: new { @id = "ProjetoId" })
             <br />
             <br />
             <br />
@@ -21,7 +21,7 @@
     <div class="form-group">
         @Html.Label("Subgrupo", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.DropDownList("teste", new SelectList(Model.subgrupos, "id", "name", 0), htmlAttributes: new { @id = "lsgrupo" })
+            @Html.DropDownList("teste", new SelectList(Model.subgrupos, "id", "name", 0), htmlAttributes: new { @id = "SubprojetoId" })
             <br />
             <br />
         </div>
@@ -37,85 +37,40 @@
 }
 
 
-@section Scripts {
-
-
-
-
-
+@section Scripts
+{
 
     @Scripts.Render("~/bundles/jqueryval")
 
-
-
-
     <script src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.js")" type="text/javascript"></script>
-
-
-
-
-
 
     <script type="text/javascript">
 
-       
-
-    $(document).ready(function () {
-
-
-
-
-     
-
-        $("#radiu").selectmenu({
-            change: function (event, data) {
-
-                alert("ok")
-
-            }
-        });
-
-        $("#lsgrupo").selectmenu({
-            change: function (event, data) {
-                var h = data.item.value;
-                alert(data.item.value)
-
-                  var url = "/Home/Categorias";
-
-    $.post(url, { i: h}, function (data) {
-
-        alert(data)
-                });
-
-
-
-
-
-                var v = data.item.value;
-                var i = 0;
-                var lsb = lsubGroups(v);
-
-
-
-            }
-        });
-
-
-
-
-
-
-
-    });
+        $("#ProjetoId").selectmenu();
 
     </script>
+      
+    <script>
+        $("#ProjetoId").selectmenu({
+            change: function (event, data) {
+
+
+                alert($("#ProjetoId").data.name)
+                $.ajax({
+                    url: "/Home/SelecionarPorProjeto/" + 3,
+                    success: function (data) {
+                        $("#SubprojetoId").empty();
+                        $("#SubprojetoId").append('<option value>Selecione...</option>');
+                        $.each(data, function (index, element) {
+                            $("#SubprojetoId").append('<option value="' + element.id + '">' + element.name + '</option>');
+                        });
+                    }
+                });
+            }
+            });
 
 
 
-
-
-
-
-
+    </script>
 }
 

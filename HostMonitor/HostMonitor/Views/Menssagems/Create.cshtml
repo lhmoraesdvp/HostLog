@@ -208,13 +208,21 @@
                 var h = data.item.value;
                 alert(data.item.value)
 
-                  var url = "/Menssagems/altergp";
+                
 
-    $.post(url, { i: h}, function (data) {
-    
-        alert(data)
+ 
+                $.ajax({
+                    url: "/Menssagems/Altergp/" + data.item.value,
+                    success: function (data) {
+                        $("#radiu").removeData();
+                        $("#radiu").append('<option value>Selecione...</option>');
+                        $.each(data, function (index, element) {
+                            $("#radiu").append('<option value="' + element.subgId + '">' + element.subgroupName + '</option>');
+                        });
+         
+
+                    }
                 });
-
 
 
 

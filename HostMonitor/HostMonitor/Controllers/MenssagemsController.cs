@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using HostMonitor.Models;
@@ -21,17 +22,16 @@ namespace HostMonitor.Controllers
         }
 
 
-        [HttpPost]
-        public string altergp(string i)
+  
+        public async Task<JsonResult> Altergp(int id)
         {
 
-            int u = Convert.ToInt32(i);
-            return i;
-        
 
-
+            // Tomei uma liberdade poética aqui. Não sei se Get aceita
+            // parâmetros, mas a título de exemplo, vamos supor que sim.
+            var l = db.SubGroup.Where(c => c.sGroup == id).ToList();
+            return Json(l, JsonRequestBehavior.AllowGet);
         }
-
 
         // GET: Menssagems/Details/5
         public ActionResult Details(int? id)

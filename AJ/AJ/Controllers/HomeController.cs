@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
@@ -16,7 +17,16 @@ namespace AJ.Controllers
             return View();
         }
 
+        public async Task<JsonResult> SelecionarPorProjeto(int id)
+        {
 
+            preenchegrupo();
+            preenchesub();
+            // Tomei uma liberdade poética aqui. Não sei se Get aceita
+            // parâmetros, mas a título de exemplo, vamos supor que sim.
+            var subprojetos = d.subgrupos.Where(c => c.groupid == id).ToList();
+            return Json(subprojetos.Where(c=>c.groupid==id).ToList(), JsonRequestBehavior.AllowGet);
+        }
 
         public void preenchegrupo()
         {
@@ -48,6 +58,10 @@ namespace AJ.Controllers
             s2.id = 3;
             s2.groupid = 3;
             s2.name = "subgrupo 3";
+
+            s2.id = 5;
+            s2.groupid = 3;
+            s2.name = "subgrupo 4";
 
             s3.id = 4;
             s3.groupid = 2;
