@@ -314,6 +314,7 @@
     <Content Include="Views\Menssagems\Details.cshtml" />
     <Content Include="Views\Menssagems\Edit.cshtml" />
     <Content Include="Views\Menssagems\Index.cshtml" />
+    <Content Include="Views\Shared\_gruposPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

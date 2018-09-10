@@ -44,5 +44,9 @@ namespace HostMonitor.Models
         public int? i01 { get; set; }
 
         public int? i02 { get; set; }
+
+
+        public List<HostGroup> groups = new List<HostGroup>();
+        public List<SubGroup> subgrupos = new List<SubGroup>();
     }
 }

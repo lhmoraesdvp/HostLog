@@ -23,14 +23,23 @@ namespace HostMonitor.Controllers
 
 
   
-        public async Task<JsonResult> Altergp(int id)
+        public ActionResult Altergp(int id)
         {
 
+            if (Request.IsAjaxRequest())
+            {
 
-            // Tomei uma liberdade poética aqui. Não sei se Get aceita
-            // parâmetros, mas a título de exemplo, vamos supor que sim.
-            var l = db.SubGroup.Where(c => c.sGroup == id).ToList();
-            return Json(l, JsonRequestBehavior.AllowGet);
+                Menssagem m = new Menssagem();
+                
+                return PartialView("_gruposPartial");
+
+            }
+            else
+            {
+
+                return View();
+            }
+   
         }
 
         // GET: Menssagems/Details/5
@@ -49,9 +58,17 @@ namespace HostMonitor.Controllers
         }
 
         // GET: Menssagems/Create
+
         public ActionResult Create()
         {
-            return View();
+            Menssagem m = new Menssagem();
+            m.groups = db.HostGroup.ToList();
+            SubGroup s = new SubGroup();
+            s.sGroup = 0;
+            s.subgId = 0;
+            s.subgroupName = "Todos";
+            m.subgrupos.Add(s);
+            return View(m);
         }
 
         // POST: Menssagems/Create

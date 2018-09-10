@@ -90,6 +90,26 @@
     <link href="@Url.Content("~/Content/jquery-ui.css")" rel="stylesheet" type="text/css" />
 }
 
+@using (Ajax.BeginForm("altergp", "Menssagems", new AjaxOptions
+{
+    HttpMethod = "get",
+    InsertionMode = InsertionMode.Replace,
+    UpdateTargetId = "sub",
+
+
+}, htmlAttributes: new { @id = "form1", @name = "form1" }))
+{
+
+
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Enviar" class="btn btn-default" />
+        </div>
+    </div>
+
+}
+
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
@@ -100,25 +120,11 @@
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
 
-        <div class="form-group">
-            @Html.Label("Grupo", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownListFor(model => model.idGrupo, new SelectList(lst, "value", "text", 0), htmlAttributes: new { @id = "lsgrupo" })
 
-                <br />
-                <br/>
-            </div>
-        </div>
 
-        
+        @Html.Partial("_gruposPartial", Model)
 
-        <div class="form-group">
-            @Html.Label("Sub Grupo", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownListFor(model => model.idSubgrupo, new SelectList(lssub, "value", "text", 0), htmlAttributes: new { @id = "radiu" })
 
-            </div>
-        </div>
         <div class="form-group">
 
 
@@ -177,7 +183,11 @@
 
     <script type="text/jscript">
 
+        function func() {
 
+            document.getElementById("form1").submit();
+
+        }
 
 
     </script>
@@ -186,68 +196,53 @@
 
     <script type="text/javascript">
 
-           $("#radius").selectmenu();
+        $("#radius").selectmenu();
 
-    $(document).ready(function () {
-
-
-
-
-        var circle = $("#circl");
-
-        $("#radiu").selectmenu({
-            change: function (event, data) {
-
-                alert("ok")
-
-            }
-        });
-
-        $("#lsgrupo").selectmenu({
-            change: function (event, data) {
-                var h = data.item.value;
-                alert(data.item.value)
-
-                
-
- 
-                $.ajax({
-                    url: "/Menssagems/Altergp/" + data.item.value,
-                    success: function (data) {
-                        $("#radiu").removeData();
-                        $("#radiu").append('<option value>Selecione...</option>');
-                        $.each(data, function (index, element) {
-                            $("#radiu").append('<option value="' + element.subgId + '">' + element.subgroupName + '</option>');
-                        });
-         
-
-                    }
-                });
+        $(document).ready(function () {
 
 
 
 
-                var v = data.item.value;
-                var i = 0;
-                var lsb = lsubGroups(v);
+            var circle = $("#circl");
+
+            $("#radiu").selectmenu({
+                change: function (event, data) {
+
+                    alert("ok")
+
+                }
+            });
+
+            $("#lsgrupo").selectmenu({
+                change: function (event, data) {
+                    var h = data.item.value;
+                    alert(h)
 
 
-           
-            }
-        });
-
-        $("#lscentro").selectmenu({
-            change: function (event, data) {
-
-                alert("ok")
-
-            }
-        })
 
 
-        /*   $("#radius").change({
-    change: function (event, data) {
-    alert("teste")
+
+
+
+
+
+
+
+                }
+            });
+
+            $("#lscentro").selectmenu({
+                change: function (event, data) {
+
+                    alert("ok")
+
+                }
+            })
+
+
+            /*   $("#radius").change({
+        change: function (event, data) {
+        alert("teste")
 }
 });
 
@@ -255,7 +250,7 @@
 */
 
 
-    });
+        });
 
     </script>
 
