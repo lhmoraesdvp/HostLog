@@ -22,23 +22,26 @@ namespace HostMonitor.Controllers
         }
 
 
-  
-        public ActionResult Altergp(int id)
+        [HttpPost]
+        public ActionResult Altergp([Bind(Include = "idGrupo,idSubgrupo,idCentro,usuario,dataHora,menssagem1,status,c0,c01,c02,i0,i01,i02")] Menssagem menssagem)
         {
+
 
             if (Request.IsAjaxRequest())
             {
+                m.subgrupos = db.SubGroup.Where(c => c.sGroup == menssagem.idGrupo).ToList();
+                m.groups = db.HostGroup.ToList();
 
-                m.subgrupos = db.SubGroup.Where(c => c.sGroup == id).ToList();
-                
-                return PartialView("_gruposPartial",m);
+               return PartialView("_gruposPartial", m);
 
             }
             else
             {
-
-                return View();
+                return RedirectToAction("Create", "Menssagems", new { idGrupo = menssagem.idGrupo });
             }
+
+           
+   
    
         }
 
@@ -61,17 +64,18 @@ namespace HostMonitor.Controllers
 
         public ActionResult Create(int? idGrupo)
         {
-            if(Request.IsAjaxRequest())
+            if(idGrupo!=null)
             {
 
-                m.subgrupos = db.SubGroup.ToList();
                 m.groups = db.HostGroup.ToList();
-                return PartialView("_gruposPartial", m);
+                m.subgrupos = db.SubGroup.Where(c => c.sGroup == idGrupo).ToList();
+                return View (m);
 
-            }         
 
-       
-                m.groups = db.HostGroup.ToList();
+            }
+
+
+            m.groups = db.HostGroup.ToList();
                 SubGroup s = new SubGroup();
                 s.sGroup = 0;
                 s.subgId = 0;

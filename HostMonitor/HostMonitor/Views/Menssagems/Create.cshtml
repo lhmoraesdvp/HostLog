@@ -94,13 +94,16 @@
 
 
 
-@using (Ajax.BeginForm("Create", "Menssagems", new AjaxOptions { HttpMethod = "Post", InsertionMode = InsertionMode.Replace, UpdateTargetId = "sub" },htmlAttributes:new {@id="form1" }))
+@using (Ajax.BeginForm("altergp", "Menssagems", new AjaxOptions { HttpMethod = "Post", InsertionMode = InsertionMode.Replace, UpdateTargetId = "sub" }, htmlAttributes: new { @id = "form1" }))
 {
 
 
-
-
-
+    @Html.Partial("_gruposPartial", Model)
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="atualizar" id="atualizar" class="btn btn-default" />
+        </div>
+    </div>
 
 
 
@@ -113,20 +116,16 @@
 {
 
         @Html.AntiForgeryToken()
-  
+
         <div class="form-horizontal">
             <h4>Enviar Menssagem</h4>
+            @System.DateTime.Now;
             <hr />
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
 
-            @Html.Partial("_gruposPartial", Model)
-
-        
-            <input type="button" value="Atualizar" id="Atualizar" />
-
             <div class="form-group">
-
+            
 
                 @Html.Label("Centro de Custo", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -146,14 +145,7 @@
                 </div>
             </div>
 
-            <div class="form-group">
-
-                @Html.Label("variavel", htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.c0, new { htmlAttributes = new { @class = "form-control" , @placeholder = "Digite Nome ou CPF"} })
-                    @Html.ValidationMessageFor(model => model.c01, "", new { @class = "text-danger" })
-                </div>
-            </div>
+      
 
 
         </div>
@@ -193,13 +185,19 @@
 <script type="text/javascript">
     $('#Atualizar').click(function () {
         alert("ok")
-       
-           document.getElementById("form2").submit();
+
+        document.getElementById("atualizar").click();
             })
 </script>
 
 
     <script type="text/jscript">
+
+        $("#radius").selectmenu();
+        $("#lsgrupo").selectmenu();
+
+
+
 
         function func() {
 
@@ -214,14 +212,33 @@
 
     <script type="text/javascript">
 
+
+
         $("#radius").selectmenu();
+        $("#lsgrupo").selectmenu();
+    
 
         $(document).ready(function () {
 
+          
+            $("#lsgrupo").selectmenu({
+                change: function (event, data) {
+                
+                    
+
+                    document.getElementById("atualizar").click();
+              
 
 
 
-            var circle = $("#circl");
+
+
+
+
+                }
+            });
+
+
 
             $("#radiu").selectmenu({
                 change: function (event, data) {
@@ -231,24 +248,7 @@
                 }
             });
 
-            $("#lsgrupo").selectmenu({
-                change: function (event, data) {
-                    var h = data.item.value;
-                    alert(h)
-
-
-
-
-
-
-
-
-
-
-
-                }
-            });
-
+        
             $("#lscentro").selectmenu({
                 change: function (event, data) {
 
