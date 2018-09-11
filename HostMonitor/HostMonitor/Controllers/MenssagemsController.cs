@@ -66,7 +66,7 @@ namespace HostMonitor.Controllers
         {
             if(idGrupo!=null)
             {
-
+                
                 m.groups = db.HostGroup.ToList();
                 m.subgrupos = db.SubGroup.Where(c => c.sGroup == idGrupo).ToList();
                 return View (m);
@@ -74,7 +74,7 @@ namespace HostMonitor.Controllers
 
             }
 
-
+            m.centros = db.centroDeCusto.ToList();
             m.groups = db.HostGroup.ToList();
                 SubGroup s = new SubGroup();
                 s.sGroup = 0;

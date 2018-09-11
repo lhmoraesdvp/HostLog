@@ -48,5 +48,6 @@ namespace HostMonitor.Models
 
         public List<HostGroup> groups = new List<HostGroup>();
         public List<SubGroup> subgrupos = new List<SubGroup>();
+        public List<centroDeCusto> centros = new List<centroDeCusto>();
     }
 }

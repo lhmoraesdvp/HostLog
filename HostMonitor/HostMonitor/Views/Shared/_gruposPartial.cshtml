@@ -92,39 +92,71 @@
 }
 
 
-    <div id="sub">
+<div id="sub">
 
-        <div class="form-horizontal">
+    <div class="form-horizontal">
 
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-
-
-            <div class="form-group">
-                @Html.Label("Grupo", htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                  
-                    @Html.DropDownListFor(model => model.idGrupo, new SelectList(Model.groups, "groupId", "groupname", 0), htmlAttributes: new { @id = "lsgrupo" })
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
 
-                </div>
+        <div class="form-group">
+            @Html.Label("Grupo", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+
+                @Html.DropDownListFor(model => model.idGrupo, new SelectList(Model.groups, "groupId", "groupname", 0), htmlAttributes: new { @id = "lsgrupo" })
+
+
             </div>
-
-       
-
-
-            <div class="form-group">
-                @Html.Label("Sub Grupo", htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.DropDownListFor(model => model.idSubgrupo, new SelectList(Model.subgrupos, "subgId", "subgroupName", 0), htmlAttributes: new { @id = "radiu" ,@onchange="f()"})
-
-                </div>
-            </div>
-
-
-
         </div>
- 
+
+
+        <div class="form-group">
+            @Html.Label("Sub Grupo", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.idSubgrupo, new SelectList(Model.subgrupos, "subgId", "subgroupName", 0), htmlAttributes: new { @id = "radiu", @onchange = "f()" })
+
+            </div>
+        </div>
+
+
+
     </div>
+
+</div>
+
+
+
+
+<div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+        <input type="submit" value="atualizar" id="atualizar" class="btn btn-default" />
+    </div>
+</div>
+
+
+<script>
+    $(function () {
+        $("#lsgrupo").selectmenu({
+            change: function (event, data) {
+
+
+
+                document.getElementById("atualizar").click();
+
+
+
+
+
+
+
+
+            }
+        });
+
+    });
+</script>
+
+
 
 
 <script type="text/javascript"
@@ -153,8 +185,8 @@
 
 
 
-        $("#radiu").selectmenu();
-        $("#lsgrupo").selectmenu();
+    $("#radiu").selectmenu();
+    $("#lsgrupo").selectmenu();
 
 
 
