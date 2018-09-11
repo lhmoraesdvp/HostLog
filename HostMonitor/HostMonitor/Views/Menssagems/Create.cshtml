@@ -90,71 +90,83 @@
     <link href="@Url.Content("~/Content/jquery-ui.css")" rel="stylesheet" type="text/css" />
 }
 
-@using (Ajax.BeginForm("altergp", "Menssagems", new AjaxOptions
-{
-    HttpMethod = "get",
-    InsertionMode = InsertionMode.Replace,
-    UpdateTargetId = "sub",
 
 
-}, htmlAttributes: new { @id = "form1", @name = "form1" }))
+
+
+@using (Ajax.BeginForm("Create", "Menssagems", new AjaxOptions { HttpMethod = "Post", InsertionMode = InsertionMode.Replace, UpdateTargetId = "sub" },htmlAttributes:new {@id="form1" }))
 {
 
 
 
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Enviar" class="btn btn-default" />
-        </div>
-    </div>
+
+
+
+
 
 }
 
-@using (Html.BeginForm())
+
+
+
+@using (Ajax.BeginForm("Create", "Menssagems", new AjaxOptions { HttpMethod = "Post", InsertionMode = InsertionMode.Replace, UpdateTargetId = "sub" }, htmlAttributes: new { @id = "form2" }))
 {
-    @Html.AntiForgeryToken()
 
-    <div class="form-horizontal">
-        <h4>Enviar Menssagem</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.AntiForgeryToken()
+  
+        <div class="form-horizontal">
+            <h4>Enviar Menssagem</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
 
+            @Html.Partial("_gruposPartial", Model)
+
+        
+            <input type="button" value="Atualizar" id="Atualizar" />
+
+            <div class="form-group">
 
 
-        @Html.Partial("_gruposPartial", Model)
+                @Html.Label("Centro de Custo", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(model => model.idSubgrupo, new SelectList(lstcentro(), "value", "text", 0), htmlAttributes: new { @id = "lscentro" })
 
+
+                </div>
+            </div>
+
+
+            <div class="form-group">
+
+                @Html.Label("Menssagem", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.menssagem1, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.menssagem1, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+
+                @Html.Label("variavel", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.c0, new { htmlAttributes = new { @class = "form-control" , @placeholder = "Digite Nome ou CPF"} })
+                    @Html.ValidationMessageFor(model => model.c01, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+        </div>
 
         <div class="form-group">
-
-
-            @Html.Label("Centro de Custo", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownListFor(model => model.idSubgrupo, new SelectList(lstcentro(), "value", "text", 0), htmlAttributes: new { @id = "lscentro" })
-
-
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Enviar" class="btn btn-default" />
             </div>
         </div>
 
+    }
 
-        <div class="form-group">
 
-            @Html.Label("Menssagem", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.menssagem1, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.menssagem1, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-    </div>
-
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Enviar" class="btn btn-default" />
-        </div>
-    </div>
-
-}
 
 
 <div>
@@ -178,14 +190,20 @@
 
     <script src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.js")" type="text/javascript"></script>
 
-
+<script type="text/javascript">
+    $('#Atualizar').click(function () {
+        alert("ok")
+       
+           document.getElementById("form2").submit();
+            })
+</script>
 
 
     <script type="text/jscript">
 
         function func() {
 
-            document.getElementById("form1").submit();
+
 
         }
 

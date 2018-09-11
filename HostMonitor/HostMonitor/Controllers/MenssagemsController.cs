@@ -14,7 +14,7 @@ namespace HostMonitor.Controllers
     public class MenssagemsController : Controller
     {
         private Db db = new Db();
-
+        Menssagem m = new Menssagem();
         // GET: Menssagems
         public ActionResult Index()
         {
@@ -29,9 +29,9 @@ namespace HostMonitor.Controllers
             if (Request.IsAjaxRequest())
             {
 
-                Menssagem m = new Menssagem();
+                m.subgrupos = db.SubGroup.Where(c => c.sGroup == id).ToList();
                 
-                return PartialView("_gruposPartial");
+                return PartialView("_gruposPartial",m);
 
             }
             else
@@ -59,25 +59,43 @@ namespace HostMonitor.Controllers
 
         // GET: Menssagems/Create
 
-        public ActionResult Create()
+        public ActionResult Create(int? idGrupo)
         {
-            Menssagem m = new Menssagem();
-            m.groups = db.HostGroup.ToList();
-            SubGroup s = new SubGroup();
-            s.sGroup = 0;
-            s.subgId = 0;
-            s.subgroupName = "Todos";
-            m.subgrupos.Add(s);
-            return View(m);
+            if(Request.IsAjaxRequest())
+            {
+
+                m.subgrupos = db.SubGroup.ToList();
+                m.groups = db.HostGroup.ToList();
+                return PartialView("_gruposPartial", m);
+
+            }         
+
+       
+                m.groups = db.HostGroup.ToList();
+                SubGroup s = new SubGroup();
+                s.sGroup = 0;
+                s.subgId = 0;
+                s.subgroupName = "Todos";
+                m.subgrupos.Add(s);
+                return View(m);
+            
+
         }
 
         // POST: Menssagems/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "idMenssagem,idGrupo,idSubgrupo,idCentro,usuario,dataHora,menssagem1,status,c0,c01,c02,i0,i01,i02")] Menssagem menssagem)
+
+        public ActionResult Create([Bind(Include = "idGrupo,idSubgrupo,idCentro,usuario,dataHora,menssagem1,status,c0,c01,c02,i0,i01,i02")] Menssagem menssagem)
         {
+
+          
+            
+
+
+
+
             if (ModelState.IsValid)
             {
                 db.Menssagem.Add(menssagem);

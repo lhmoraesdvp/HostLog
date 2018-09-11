@@ -101,12 +101,14 @@
             <div class="form-group">
                 @Html.Label("Grupo", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.DropDownListFor(model => model.idGrupo, new SelectList(Model.groups, "groupId", "groupname", 0), htmlAttributes: new { @id = "lsgrupo",@onchange="func()" })
+                  
+                    @Html.DropDownListFor(model=>model.idGrupo, new SelectList(Model.groups, "groupId", "groupname", 0), htmlAttributes: new { @id = "idGrupo", @onchange="func()" })
 
 
                 </div>
             </div>
 
+       
 
 
             <div class="form-group">
@@ -120,7 +122,11 @@
 
 
         </div>
-
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Enviar" class="btn btn-default" />
+            </div>
+        </div>
     </div>
 
  
