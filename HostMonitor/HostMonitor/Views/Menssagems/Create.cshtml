@@ -2,93 +2,8 @@
 
 @{
     ViewBag.Title = "Enviar Menssagem";
-    HostMonitor.Models.Db l = new HostMonitor.Models.Db();
-    var lgroups = l.HostGroup.Select(c => new { c.groupId, c.groupName }).ToList();
-    var g = 0;
-    var ccc = 0;
-    List<HostMonitor.Models.SubGroup> lsubGroups(int group)
-    {
-        List<HostMonitor.Models.SubGroup> lsg = l.SubGroup.Where(c => c.sGroup == group).ToList();
-
-        return lsg;
-    }
-    List<HostMonitor.Models.centroDeCusto> lcentro(int su)
-    {
-        List<HostMonitor.Models.centroDeCusto> lsc = l.centroDeCusto.Where(c => c.ccSubGroup == 10).ToList();
-        return lsc;
-    }
-
-    List<Object> lst = new List<Object>
-    {
-
-
-    };
-
-    for (int i = 0; i < lgroups.Count; i++)
-    {
-        lst.Add(new { value = lgroups[i].groupId, text = lgroups[i].groupName });
-
-    }
-    List<Object> lssub = new List<object>
-    {
-
-
-    };
-
-    List<Object> lstsub(int gp)
-    {
-        var lss = lsubGroups(gp);
-
-        List<Object> lsts = new List<object>
-        {
-
-
-        };
-
-        for (int i = 0; i < lss.Count; i++)
-        {
-            lsts.Add(new { value = lss[i].subgId, text = lss[i].subgroupName });
-
-        }
-        lssub = lsts;
-        return lsts;
-
-    };
-
-
-
-
-    List<Object> lstcentro()
-    {
-        var lcc = lcentro(9);
-
-        List<Object> lstcc = new List<object>
-        {
-
-
-        };
-
-        for (int i = 0; i < lcc.Count; i++)
-        {
-            lstcc.Add(new { value = lcc[i].ccId, text = lcc[i].ccName });
-
-        }
-
-        return lstcc;
-
-    };
-
-
-    for (int i = 0; i < lgroups.Count; i++)
-    {
-        lst.Add(new { value = lgroups[i].groupId, text = lgroups[i].groupName });
-
-    }
-
-
 
 }
-
 <hr />
 <h2>Enviar Menssagem</h2>
 <br />
@@ -98,42 +13,15 @@
 
 @using (Ajax.BeginForm("altergp", "Menssagems", new AjaxOptions { HttpMethod = "Post", InsertionMode = InsertionMode.Replace, UpdateTargetId = "sub" }, htmlAttributes: new { @id = "form1" }))
 {
-
-
-    @Html.Partial("_gruposPartial", Model)
-
-
-
+ @Html.Partial("_gruposPartial", Model)
 }
-
-
-
 
 @using (Ajax.BeginForm("Create", "Menssagems", new AjaxOptions { HttpMethod = "Post", InsertionMode = InsertionMode.Replace, UpdateTargetId = "sub" }, htmlAttributes: new { @id = "form2" }))
 {
+ @Html.AntiForgeryToken()
+ <div class="form-horizontal">
+ @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-    @Html.AntiForgeryToken()
-
-    <div class="form-horizontal">
-
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-
-
-
-
-
-
-
-        <div class="form-group">
-
-
-            @Html.Label("Centro de Custo", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownListFor(model => model.idCentro, new SelectList(Model.centros.OrderBy(c=>c.ccName).ToList(), "ccId", "ccName", 0), htmlAttributes: new { @id = "lscentro" })
-
-
-            </div>
-        </div>
 
 
         <div class="form-group">
@@ -144,10 +32,6 @@
                 @Html.ValidationMessageFor(model => model.menssagem1, "", new { @class = "text-danger" })
             </div>
         </div>
-
-
-
-
     </div>
 
     <div class="form-group">
@@ -195,8 +79,7 @@
 
         $("#radius").selectmenu();
         $("#lsgrupo").selectmenu();
-        $("#lsgrupo").hide();
-
+        $("#lscentro").selectmenu()
 
 
         function func() {

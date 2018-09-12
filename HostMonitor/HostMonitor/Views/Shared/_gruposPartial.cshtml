@@ -21,7 +21,7 @@
             @Html.Label("Grupo", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
 
-                @Html.DropDownListFor(model => model.idGrupo, new SelectList(Model.groups.OrderBy(c=>c.groupName).ToList(), "groupId", "groupname", 0), htmlAttributes: new { @id = "lsgrupo" })
+                @Html.DropDownListFor(model => model.idGrupo, new SelectList(Model.groups.OrderBy(c => c.groupId).ToList(), "groupId", "groupname", 0), htmlAttributes: new { @id = "lsgrupo" })
 
 
             </div>
@@ -31,12 +31,17 @@
         <div class="form-group">
             @Html.Label("Sub Grupo", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.idSubgrupo, new SelectList(Model.subgrupos.OrderBy(c=>c.subgroupName).ToList(), "subgId", "subgroupName", 0), htmlAttributes: new { @id = "radiu", @onchange = "f()" })
+                @Html.DropDownListFor(model => model.idSubgrupo, new SelectList(Model.subgrupos.OrderBy(c => c.subgId).ToList(), "subgId", "subgroupName", 0), htmlAttributes: new { @id = "radiu", @onchange = "f()" })
 
             </div>
         </div>
 
-
+        <div class="form-group">
+            @Html.Label("Centro de Custo", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.idCentro, new SelectList(Model.centros.OrderBy(c => c.ccId).ToList(), "ccId", "ccName", 0), htmlAttributes: new { @id = "lscentro" })
+            </div>
+        </div>
 
     </div>
 
@@ -110,6 +115,9 @@
 
     $("#radiu").selectmenu();
     $("#lsgrupo").selectmenu();
+    $("#lscentro").selectmenu()
+
+    
     $("#atualizar").hide();
 
 

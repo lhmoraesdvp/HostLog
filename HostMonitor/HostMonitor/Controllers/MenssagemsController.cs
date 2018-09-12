@@ -26,13 +26,25 @@ namespace HostMonitor.Controllers
         public ActionResult Altergp([Bind(Include = "idGrupo,idSubgrupo,idCentro,usuario,dataHora,menssagem1,status,c0,c01,c02,i0,i01,i02")] Menssagem menssagem)
         {
 
-            centroDeCusto c1 = new centroDeCusto();
-            c1.ccId = 0;
-            c1.ccName = "Todos";
-            m.centros.Add(c1);
+          
+       
             if (Request.IsAjaxRequest())
             {
+                centroDeCusto c1 = new centroDeCusto();
+                c1.ccId = 0;
+                c1.ccName = "Todos";
+                m.centros.Add(c1);
+
+      
+
                 m.subgrupos = db.SubGroup.Where(c => c.sGroup == menssagem.idGrupo).ToList();
+                SubGroup s = new SubGroup();
+                s.sGroup = 0;
+                s.subgId = 0;
+                s.subgroupName = "Todos";
+                m.subgrupos.Add(s);
+                m.subgrupos.ToList();
+
                 m.groups = db.HostGroup.ToList();
 
                return PartialView("_gruposPartial", m);
@@ -70,45 +82,52 @@ namespace HostMonitor.Controllers
             HostGroup g = new HostGroup();
             HostGroup g1 = new HostGroup();
             centroDeCusto c1 = new centroDeCusto();
-            centroDeCusto c2 = new centroDeCusto();
+          
             if (idGrupo!=null)
             {
                 
                 m.groups = db.HostGroup.ToList();
-            
+             
+
                 g.groupId = 0;
                 g.groupName = "Todos";
-                g1 = m.groups[0];
-                m.groups[0] = g;
-                m.groups.Add(g1);
-
                 c1.ccId = 0;
                 c1.ccName = "Todos";
-                c2 = m.centros[0];
-                m.centros[0] = c1;
-                m.centros.Add(c2);
+                g1 = m.groups[0];
              
+                m.groups[0] = g;
+                m.groups.Add(g1);
+        
+                m.centros.Add(c1);
+
                 m.subgrupos = db.SubGroup.Where(c => c.sGroup == idGrupo).ToList();
-                m.centros = db.centroDeCusto.ToList();
+            
 
                 return View (m);
 
 
             }
 
-            m.centros = db.centroDeCusto.ToList();
+       
             m.groups = db.HostGroup.ToList();
+
             g = new HostGroup();
             g.groupId = 0;
             g.groupName = "Todos";
-              g1 = m.groups[0];
-            m.groups[0] = g;
-            m.groups.Add(g1);
-            m.groups.OrderBy(c => c.groupName).ToList();
-       
             c1.ccId = 0;
             c1.ccName = "Todos";
+            g1 = m.groups[0];
+            m.groups[0] = g;
+            m.groups.Add(g1);
+      
+      
             m.centros.Add(c1);
+
+         
+            m.groups.OrderBy(c => c.groupName).ToList();
+            m.centros.OrderBy(c => c.ccName).ToList();
+          
+         
 
             SubGroup s = new SubGroup();
                 s.sGroup = 0;
@@ -116,7 +135,8 @@ namespace HostMonitor.Controllers
                 s.subgroupName = "Todos";
                 m.subgrupos.Add(s);
             m.subgrupos.ToList();
-            m.centros = db.centroDeCusto.ToList();
+            m.centros.ToList();
+          
             m.centros.OrderBy(c => c.ccName).ToList();
             return View(m);
             
