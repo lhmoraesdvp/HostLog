@@ -86,12 +86,14 @@
     }
 
 
-    <h2>Menssagens</h2>
-    <link href="@Url.Content("~/Content/jquery-ui.css")" rel="stylesheet" type="text/css" />
+
 }
 
-
-
+<hr />
+<h2>Enviar Menssagem</h2>
+<br />
+<br/>
+<link href="@Url.Content("~/Content/jquery-ui.css")" rel="stylesheet" type="text/css" />
 
 
 @using (Ajax.BeginForm("altergp", "Menssagems", new AjaxOptions { HttpMethod = "Post", InsertionMode = InsertionMode.Replace, UpdateTargetId = "sub" }, htmlAttributes: new { @id = "form1" }))
@@ -110,17 +112,15 @@
 @using (Ajax.BeginForm("Create", "Menssagems", new AjaxOptions { HttpMethod = "Post", InsertionMode = InsertionMode.Replace, UpdateTargetId = "sub" }, htmlAttributes: new { @id = "form2" }))
 {
 
-        @Html.AntiForgeryToken()
+    @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>Enviar Menssagem</h4>
-        @System.DateTime.Now;
-        <hr />
+
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
 
 
-        
+
 
 
 
@@ -129,7 +129,7 @@
 
             @Html.Label("Centro de Custo", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.idSubgrupo, new SelectList(Model.centros, "ccId", "ccName", 0), htmlAttributes: new { @id = "lscentro" })
+                @Html.DropDownListFor(model => model.idCentro, new SelectList(Model.centros.OrderBy(c=>c.ccName).ToList(), "ccId", "ccName", 0), htmlAttributes: new { @id = "lscentro" })
 
 
             </div>
@@ -150,13 +150,13 @@
 
     </div>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Enviar" class="btn btn-default" />
-            </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Enviar" class="btn btn-default" />
         </div>
+    </div>
 
-    }
+}
 
 
 
@@ -182,20 +182,20 @@
 
     <script src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.js")" type="text/javascript"></script>
 
-<script type="text/javascript">
-    $('#Atualizar').click(function () {
-        alert("ok")
+    <script type="text/javascript">
+        $('#Atualizar').click(function () {
+            alert("ok")
 
-        document.getElementById("atualizar").click();
-            })
-</script>
+            document.getElementById("atualizar").click();
+        })
+    </script>
 
 
     <script type="text/jscript">
 
         $("#radius").selectmenu();
         $("#lsgrupo").selectmenu();
-
+        $("#lsgrupo").hide();
 
 
 
@@ -216,18 +216,18 @@
 
         $("#radius").selectmenu();
         $("#lsgrupo").selectmenu();
-    
+        $("#atualizar").hide();
+
 
         $(document).ready(function () {
 
-          
+
             $("#lsgrupo").selectmenu({
                 change: function (event, data) {
-                
-                    
+
 
                     document.getElementById("atualizar").click();
-              
+
 
 
 
@@ -248,7 +248,7 @@
                 }
             });
 
-        
+
             $("#lscentro").selectmenu({
                 change: function (event, data) {
 

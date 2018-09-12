@@ -3,94 +3,12 @@
 
 @{
 
-    HostMonitor.Models.Db l = new HostMonitor.Models.Db();
-    var lgroups = l.HostGroup.Select(c => new { c.groupId, c.groupName }).ToList();
-    var g = 0;
-    var ccc = 0;
-    List<HostMonitor.Models.SubGroup> lsubGroups(int group)
-    {
-        List<HostMonitor.Models.SubGroup> lsg = l.SubGroup.Where(c => c.sGroup == group).ToList();
-
-        return lsg;
-    }
-    List<HostMonitor.Models.centroDeCusto> lcentro(int su)
-    {
-        List<HostMonitor.Models.centroDeCusto> lsc = l.centroDeCusto.Where(c => c.ccSubGroup == 10).ToList();
-        return lsc;
-    }
-
-    List<Object> lst = new List<Object>
-    {
 
 
-    };
-
-    for (int i = 0; i < lgroups.Count; i++)
-    {
-        lst.Add(new { value = lgroups[i].groupId, text = lgroups[i].groupName });
-
-    }
-    List<Object> lssub = new List<object>
-    {
-
-
-    };
-
-    List<Object> lstsub(int gp)
-    {
-        var lss = lsubGroups(gp);
-
-        List<Object> lsts = new List<object>
-        {
-
-
-        };
-
-        for (int i = 0; i < lss.Count; i++)
-        {
-            lsts.Add(new { value = lss[i].subgId, text = lss[i].subgroupName });
-
-        }
-        lssub = lsts;
-        return lsts;
-
-    };
-
-
-
-
-    List<Object> lstcentro()
-    {
-        var lcc = lcentro(9);
-
-        List<Object> lstcc = new List<object>
-        {
-
-
-        };
-
-        for (int i = 0; i < lcc.Count; i++)
-        {
-            lstcc.Add(new { value = lcc[i].ccId, text = lcc[i].ccName });
-
-        }
-
-        return lstcc;
-
-    };
-
-
-    for (int i = 0; i < lgroups.Count; i++)
-    {
-        lst.Add(new { value = lgroups[i].groupId, text = lgroups[i].groupName });
-
-    }
-
-
-
-    <link href="@Url.Content("~/Content/jquery-ui.css")" rel="stylesheet" type="text/css" />
 }
 
+
+<link href="@Url.Content("~/Content/jquery-ui.css")" rel="stylesheet" type="text/css" />
 
 <div id="sub">
 
@@ -103,7 +21,7 @@
             @Html.Label("Grupo", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
 
-                @Html.DropDownListFor(model => model.idGrupo, new SelectList(Model.groups, "groupId", "groupname", 0), htmlAttributes: new { @id = "lsgrupo" })
+                @Html.DropDownListFor(model => model.idGrupo, new SelectList(Model.groups.OrderBy(c=>c.groupName).ToList(), "groupId", "groupname", 0), htmlAttributes: new { @id = "lsgrupo" })
 
 
             </div>
@@ -113,7 +31,7 @@
         <div class="form-group">
             @Html.Label("Sub Grupo", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.idSubgrupo, new SelectList(Model.subgrupos, "subgId", "subgroupName", 0), htmlAttributes: new { @id = "radiu", @onchange = "f()" })
+                @Html.DropDownListFor(model => model.idSubgrupo, new SelectList(Model.subgrupos.OrderBy(c=>c.subgroupName).ToList(), "subgId", "subgroupName", 0), htmlAttributes: new { @id = "radiu", @onchange = "f()" })
 
             </div>
         </div>
@@ -122,20 +40,25 @@
 
     </div>
 
-</div>
-
-
-
-
-<div class="form-group">
-    <div class="col-md-offset-2 col-md-10">
-        <input type="submit" value="atualizar" id="atualizar" class="btn btn-default" />
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Enviar" class="btn btn-default" id="atualizar"/>
+        </div>
     </div>
+
+
 </div>
+
+
+
+
+
 
 
 <script>
     $(function () {
+        $("#atualizar").hide();
+
         $("#lsgrupo").selectmenu({
             change: function (event, data) {
 
@@ -187,6 +110,7 @@
 
     $("#radiu").selectmenu();
     $("#lsgrupo").selectmenu();
+    $("#atualizar").hide();
 
 
 
