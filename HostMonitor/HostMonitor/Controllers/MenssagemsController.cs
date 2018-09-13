@@ -83,10 +83,6 @@ namespace HostMonitor.Controllers
                 }
 
 
-                if (menssagem.c0 == "3")
-                {
-                    return PartialView("_gruposPartial", m);
-                }
                 else
                 {
                     return PartialView("_gruposPartial", m);

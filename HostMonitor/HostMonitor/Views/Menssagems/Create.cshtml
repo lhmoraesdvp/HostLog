@@ -100,14 +100,14 @@
         $("#radius").selectmenu();
         $("#lsgrupo").selectmenu();
         $("#atualizar").hide();
-
+        $("#tip").hide();
 
         $(document).ready(function () {
 
 
             $("#lsgrupo").selectmenu({
                 change: function (event, data) {
-                    alert("teste")
+                 
                     $("#tip").val("1");
 
                     document.getElementById("atualizar").click();
@@ -128,7 +128,7 @@
             $("#radiu").selectmenu({
                 change: function (event, data) {
                     $("#tip").val("2");
-                    alert("ok")
+            
 
                 }
             });
@@ -137,7 +137,6 @@
             $("#lscentro").selectmenu({
                 change: function (event, data) {
 
-                    alert("ok")
                     $("#tip").val("3");
                 }
             })
