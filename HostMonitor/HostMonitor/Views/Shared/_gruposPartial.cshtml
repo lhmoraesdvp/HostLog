@@ -43,11 +43,27 @@
             </div>
         </div>
 
+
+
+
+
+        <div class="form-group">
+
+            @Html.Label("Menssagem", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.c0, new { htmlAttributes = new { @class = "form-control", @id = "tip" } })
+   
+            </div>
+        </div>
+
+
+
+
     </div>
 
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Enviar" class="btn btn-default" id="atualizar"/>
+            <input type="submit" value="Enviar" class="btn btn-default" id="atualizar" />
         </div>
     </div>
 
@@ -64,11 +80,48 @@
     $(function () {
         $("#atualizar").hide();
 
-        $("#lsgrupo").selectmenu({
+        $("#lscentro").selectmenu({
+            change: function (event, data) {
+
+
+    alert("teste")
+                $("#tip").val("3");
+
+
+
+
+
+
+
+
+            }
+        });
+
+
+
+
+    });
+
+
+
+</script>
+<script>
+        $(function () {
+
+
+</script>
+
+<script>
+
+    $(function () {
+        $("#atualizar").hide();
+
+        $("#radiu").selectmenu({
             change: function (event, data) {
 
 
 
+                $("#tip").val("2");
                 document.getElementById("atualizar").click();
 
 
@@ -81,9 +134,54 @@
             }
         });
 
+
+
+
+
+
+
+
+
+
     });
 </script>
 
+
+
+<script>
+
+    $(function () {
+        $("#atualizar").hide();
+
+        $("#lsgrupo").selectmenu({
+            change: function (event, data) {
+
+                alert("teste")
+
+                $("#tip").val("1");
+                document.getElementById("atualizar").click();
+
+
+
+
+
+
+
+
+            }
+        });
+
+
+
+
+
+
+
+
+
+
+    });
+</script>
 
 
 
@@ -115,9 +213,9 @@
 
     $("#radiu").selectmenu();
     $("#lsgrupo").selectmenu();
-    $("#lscentro").selectmenu()
+    $("#lscentro").selectmenu();
+    $("#lscentro").val = 1;
 
-    
     $("#atualizar").hide();
 
 

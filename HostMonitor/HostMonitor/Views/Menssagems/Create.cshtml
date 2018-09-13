@@ -53,7 +53,7 @@
 
 
 
-
+    
 
 
     @Scripts.Render("~/bundles/jqueryval")
@@ -80,8 +80,8 @@
         $("#radius").selectmenu();
         $("#lsgrupo").selectmenu();
         $("#lscentro").selectmenu()
-
-
+        $("#tip").val = 1;
+        document.getElementById("tip").data.val = "2";
         function func() {
 
 
@@ -107,10 +107,12 @@
 
             $("#lsgrupo").selectmenu({
                 change: function (event, data) {
-
+                    alert("teste")
+                    $("#tip").val("1");
 
                     document.getElementById("atualizar").click();
 
+               
 
 
 
@@ -125,7 +127,7 @@
 
             $("#radiu").selectmenu({
                 change: function (event, data) {
-
+                    $("#tip").val("2");
                     alert("ok")
 
                 }
@@ -136,7 +138,7 @@
                 change: function (event, data) {
 
                     alert("ok")
-
+                    $("#tip").val("3");
                 }
             })
 

@@ -26,39 +26,92 @@ namespace HostMonitor.Controllers
         public ActionResult Altergp([Bind(Include = "idGrupo,idSubgrupo,idCentro,usuario,dataHora,menssagem1,status,c0,c01,c02,i0,i01,i02")] Menssagem menssagem)
         {
 
-          
-       
+
+
+
             if (Request.IsAjaxRequest())
             {
                 centroDeCusto c1 = new centroDeCusto();
-                c1.ccId = 0;
-                c1.ccName = "Todos";
-                m.centros.Add(c1);
-
-      
-
-                m.subgrupos = db.SubGroup.Where(c => c.sGroup == menssagem.idGrupo).ToList();
                 SubGroup s = new SubGroup();
-                s.sGroup = 0;
-                s.subgId = 0;
-                s.subgroupName = "Todos";
-                m.subgrupos.Add(s);
-                m.subgrupos.ToList();
 
-                m.groups = db.HostGroup.ToList();
 
-               return PartialView("_gruposPartial", m);
+                if (menssagem.c0 == "1")
+                {
+
+                    c1.ccId = 0;
+                    c1.ccName = "Todos";
+                    m.centros.Add(c1);
+
+
+
+                    m.subgrupos = db.SubGroup.Where(c => c.sGroup == menssagem.idGrupo).ToList();
+                    s = new SubGroup();
+                    s.sGroup = 0;
+                    s.subgId = 0;
+                    s.subgroupName = "Todos";
+                    m.subgrupos.Add(s);
+                    m.subgrupos.ToList();
+
+                    m.groups = db.HostGroup.ToList();
+
+                    return PartialView("_gruposPartial", m);
+                }
+
+                if (menssagem.c0 == "2")
+                {
+                    m.centros = db.centroDeCusto.Where(c => c.ccSubGroup == menssagem.idSubgrupo).ToList();
+
+
+                    c1 = new centroDeCusto();
+                    c1.ccId = 0;
+                    c1.ccName = "Todos";
+                    m.centros.Add(c1);
+
+
+
+                    m.subgrupos = db.SubGroup.Where(c => c.sGroup == menssagem.idGrupo).ToList();
+
+                    s.sGroup = 0;
+                    s.subgId = 0;
+                    s.subgroupName = "Todos";
+                    m.subgrupos.Add(s);
+                    m.subgrupos.ToList();
+
+                    m.groups = db.HostGroup.ToList();
+
+                    return PartialView("_gruposPartial", m);
+                }
+
+
+                if (menssagem.c0 == "3")
+                {
+                    return PartialView("_gruposPartial", m);
+                }
+                else
+                {
+                    return PartialView("_gruposPartial", m);
+                }
+
+
+
+
 
             }
+
             else
             {
                 return RedirectToAction("Create", "Menssagems", new { idGrupo = menssagem.idGrupo });
             }
 
-           
-   
-   
+
+
         }
+
+
+
+
+
+    
 
         // GET: Menssagems/Details/5
         public ActionResult Details(int? id)
@@ -233,4 +286,5 @@ namespace HostMonitor.Controllers
             base.Dispose(disposing);
         }
     }
+
 }
