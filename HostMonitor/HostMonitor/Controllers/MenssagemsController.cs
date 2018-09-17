@@ -126,6 +126,19 @@ namespace HostMonitor.Controllers
 
         // GET: Menssagems/Create
 
+
+            public void grava(Menssagem m)
+        {
+           Menssagem g = new Menssagem();
+            g.menssagem1 = "hahahahhaha";
+
+              db.Menssagem.Add(g);
+          //  db.Menssagem.Add(g);
+            db.SaveChanges();
+        }
+
+
+
         public ActionResult Create(int? idGrupo)
         {
             HostGroup g = new HostGroup();
@@ -200,20 +213,27 @@ namespace HostMonitor.Controllers
         public ActionResult Create([Bind(Include = "idGrupo,idSubgrupo,idCentro,usuario,dataHora,menssagem1,status,c0,c01,c02,i0,i01,i02")] Menssagem menssagem)
         {
 
+
           
+            if (ModelState.IsValid)
+                {
+
+
+
+                grava(menssagem);
+              
+
+                    
+              
+                }
+
+                return View(menssagem);
+
             
 
 
 
 
-            if (ModelState.IsValid)
-            {
-                db.Menssagem.Add(menssagem);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-
-            return View(menssagem);
         }
 
         // GET: Menssagems/Edit/5

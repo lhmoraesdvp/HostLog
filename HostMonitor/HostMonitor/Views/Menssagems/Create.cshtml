@@ -7,20 +7,20 @@
 <hr />
 <h2>Enviar Menssagem</h2>
 <br />
-<br/>
+<br />
 <link href="@Url.Content("~/Content/jquery-ui.css")" rel="stylesheet" type="text/css" />
 
 
-@using (Ajax.BeginForm("altergp", "Menssagems", new AjaxOptions { HttpMethod = "Post", InsertionMode = InsertionMode.Replace, UpdateTargetId = "sub" }, htmlAttributes: new { @id = "form1" }))
+@using (Ajax.BeginForm("Altergp", "Menssagems", new AjaxOptions { HttpMethod = "Post", InsertionMode = InsertionMode.Replace, UpdateTargetId = "sub" }, htmlAttributes: new { @id = "form1" }))
 {
- @Html.Partial("_gruposPartial", Model)
+    @Html.Partial("_gruposPartial", Model)
 }
 
 @using (Ajax.BeginForm("Create", "Menssagems", new AjaxOptions { HttpMethod = "Post", InsertionMode = InsertionMode.Replace, UpdateTargetId = "sub" }, htmlAttributes: new { @id = "form2" }))
 {
- @Html.AntiForgeryToken()
- <div class="form-horizontal">
- @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
 
 
@@ -32,11 +32,28 @@
                 @Html.ValidationMessageFor(model => model.menssagem1, "", new { @class = "text-danger" })
             </div>
         </div>
+
+
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.idSubgrupo, new { htmlAttributes = new { @class = "form-control", @id = "subgrupo" } })
+
+        </div>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.idGrupo, new { htmlAttributes = new { @class = "form-control", @id = "grupo" } })
+
+        </div>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.idCentro, new { htmlAttributes = new { @class = "form-control", @id = "centro" } })
+
+        </div>
+
+
+
     </div>
 
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Enviar" class="btn btn-default" />
+            <input type="button" value="Enviar" id="env" class="btn btn-default" />
         </div>
     </div>
 
@@ -53,7 +70,7 @@
 
 
 
-    
+
 
 
     @Scripts.Render("~/bundles/jqueryval")
@@ -61,6 +78,22 @@
     <script type="text/javascript"
             src="~/Scripts/jquery-ui.js">
     </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -82,11 +115,7 @@
         $("#lscentro").selectmenu()
         $("#tip").val = 1;
         document.getElementById("tip").data.val = "2";
-        function func() {
 
-
-
-        }
 
 
     </script>
@@ -105,14 +134,34 @@
         $(document).ready(function () {
 
 
+            $("#env").click(function () {
+
+                alert("teste")
+               $("#grupo").val($("#lsgrupo").val()); 
+                $("#centro").val($("#lscentro").val());
+                $("#subgrupo").val($("#radiu").val());
+                alert("teste")
+                alert("teste")
+                $("#form2").submit();
+
+            });
+
+     
+
+
+
+
+
+
+
             $("#lsgrupo").selectmenu({
                 change: function (event, data) {
-                 
+
                     $("#tip").val("1");
 
                     document.getElementById("atualizar").click();
 
-               
+
 
 
 
@@ -128,7 +177,7 @@
             $("#radiu").selectmenu({
                 change: function (event, data) {
                     $("#tip").val("2");
-            
+
 
                 }
             });
