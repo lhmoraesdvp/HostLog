@@ -3,6 +3,18 @@
 @{
     ViewBag.Title = "Detalhes";
     HostMonitor.Models.Db l = new HostMonitor.Models.Db();
+    var ce= l.centroDeCusto.Where(c => c.ccId == Model.hostCc).SingleOrDefault();
+    string centro = "";
+    if (ce != null)
+    {
+        centro = ce.ccName;
+
+    }
+
+
+
+
+
 }
 
 <h2>Detalhes</h2>
@@ -76,16 +88,8 @@
 
         <dd>
             @{
-                var sta = l.centroDeCusto.Where(c => c.ccId == Model.hostCc).Select(c => c.ccName).ToList();
-                if (sta.Count > 0)
-                {
-                    @Html.Raw(l.centroDeCusto.Where(c => c.ccId == Model.hostCc).Select(c => c.ccName).SingleOrDefault().ToString())
-
-                }
-                else
-                {
-                    @Html.Display("")
-                }
+               
+              <p> @centro</p>
             }
         </dd>
 

@@ -30,7 +30,18 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.status)
+
+            @if (item.status == 1)
+            {
+                <p>Enviado</p>
+            }
+            @if (item.status == 0)
+            {
+                <p>Pendente</p>
+                
+            }
+
+
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.dataHora)

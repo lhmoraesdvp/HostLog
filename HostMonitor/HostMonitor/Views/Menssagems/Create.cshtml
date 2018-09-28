@@ -16,7 +16,7 @@
     @Html.Partial("_gruposPartial", Model)
 }
 
-@using (Ajax.BeginForm("Create", "Menssagems", new AjaxOptions { HttpMethod = "Post", InsertionMode = InsertionMode.Replace, UpdateTargetId = "sub" }, htmlAttributes: new { @id = "form2" }))
+@using (Html.BeginForm("Create", "Menssagems", FormMethod.Post, htmlAttributes: new { @id = "form2" }))
 {
     @Html.AntiForgeryToken()
     <div class="form-horizontal">
@@ -47,24 +47,28 @@
 
         </div>
 
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.usuario, new { htmlAttributes = new { @class = "form-control", @id = "usuario" } })
+
+        </div>
 
 
     </div>
 
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
-            <input type="button" value="Enviar" id="env" class="btn btn-default" />
+            @Html.ActionLink("Voltar", "Index", new { @class = "btn btn-primary btn-large" })   <input type="button" value="Enviar" id="env" class="btn btn-default" />
         </div>
     </div>
-
+    <br />
+    <br />
+    <br />
 }
 
 
 
 
-<div>
-    @Html.ActionLink("Voltar", "Index")
-</div>
+
 
 @section Scripts {
 
@@ -101,7 +105,7 @@
 
     <script type="text/javascript">
         $('#Atualizar').click(function () {
-            alert("ok")
+
 
             document.getElementById("atualizar").click();
         })
@@ -130,23 +134,28 @@
         $("#lsgrupo").selectmenu();
         $("#atualizar").hide();
         $("#tip").hide();
-
+        $("#subgrupo").hide();
+        $("#grupo").hide();
+        $("#centro").hide();
+        $("#usuario").hide()
         $(document).ready(function () {
 
 
             $("#env").click(function () {
 
-                alert("teste")
-               $("#grupo").val($("#lsgrupo").val()); 
+
+                $("#grupo").val($("#lsgrupo").val());
                 $("#centro").val($("#lscentro").val());
                 $("#subgrupo").val($("#radiu").val());
-                alert("teste")
-                alert("teste")
+
+
+                // $("#usuario").val(User.Identity.GetUserName());
+
                 $("#form2").submit();
 
             });
 
-     
+
 
 
 
