@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<configs>
+  <config>
+    <ccid>4</ccid>
+    <ccname>Meu centro</ccname>
+    <serverip>teste</serverip>
+    <servername>teste</servername>
+    <time>teste</time>
+  </config>
+  <config>
+    <ccid>1004</ccid>
+    <ccname>Centro 2</ccname>
+    <serverip>teste</serverip>
+    <servername>teste</servername>
+    <time>teste</time>
+  </config>
+  <config>
+    <ccid>1005</ccid>
+    <ccname>Centro 3 </ccname>
+    <serverip>teste</serverip>
+    <servername>teste</servername>
+    <time>teste</time>
+  </config>
+  <config>
+    <ccid>2004</ccid>
+    <ccname>Centro 4 </ccname>
+    <serverip>teste</serverip>
+    <servername>teste</servername>
+    <time>teste</time>
+  </config>
+  <config>
+    <ccid>4</ccid>
+    <ccname>Centro 5</ccname>
+    <serverip>teste</serverip>
+    <servername>teste</servername>
+    <time>teste</time>
+  </config>
+  <config>
+    <ccid>1004</ccid>
+    <ccname>1004</ccname>
+    <serverip>teste</serverip>
+    <servername>teste</servername>
+    <time>teste</time>
+  </config>
+  <config>
+    <ccid>1005</ccid>
+    <ccname>1005</ccname>
+    <serverip>teste</serverip>
+    <servername>teste</servername>
+    <time>teste</time>
+  </config>
+  <config>
+    <ccid>2004</ccid>
+    <ccname>2004</ccname>
+    <serverip>teste</serverip>
+    <servername>teste</servername>
+    <time>teste</time>
+  </config>
+</configs>

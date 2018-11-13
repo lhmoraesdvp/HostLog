@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<configs>
+  <config>
+    
+    <ipserver>10.11.5.104</ipserver>
+	 <centro>30093</centro>
+	  <cid>4</cid>
+  
+  </config>
+</configs>
