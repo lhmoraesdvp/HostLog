@@ -22,6 +22,17 @@ namespace HostMonitor.Controllers
             return View(db.Host.ToList());
         }
 
+
+        public ActionResult Monitor()
+        {
+            return View(db.Host.ToList());
+        }
+
+
+
+
+
+
         // GET: Hosts/Details/5
         [Authorize(Roles = "usuario")]
         public ActionResult Details(int? id)
