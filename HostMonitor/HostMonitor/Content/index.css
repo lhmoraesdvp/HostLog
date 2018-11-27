@@ -15,7 +15,11 @@ div.op2 {
     float: right;
 }
 
- 
+ div.op3 {
+    width: auto;
+   
+    float: center;
+}
 
 
 
