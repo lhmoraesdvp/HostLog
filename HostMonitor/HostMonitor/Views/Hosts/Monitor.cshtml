@@ -202,13 +202,19 @@ new HostMonitor.Models.Devices { deviceName = "servidor ", deviceId = 0 },
 
 }
 
-<left><div id="chartContainerl" class="op1" style="height: 15%;width:15%"></div></left>
+
+
+<left>
+
+ 
+    <div id="chartContainerl" class="op1" style="height: 10%;width:15%"></div>
+</left>
 
 
 
-<left><div id="chartContainerr" class="op2" style="height:  15%;width: 15%"></div></left>
+<left><div id="chartContainerr" class="op2" style="height:  10%;width: 15%"></div></left>
 
-<center><div id="chartContainerc" class="op3" style="height:  15%;width: 15%"></div></center>
+<center><div id="chartContainerc" class="op3" style="height:  50%;width:50%"></div></center>
 
 
 
@@ -437,8 +443,10 @@ new HostMonitor.Models.Devices { deviceName = "servidor ", deviceId = 0 },
 
     <script type="text/javascript">
         window.onload = function () {
+
             var chart = new CanvasJS.Chart("chartContainerl",
                 {
+
                     title: {
                         text: ""
                     },
@@ -446,9 +454,9 @@ new HostMonitor.Models.Devices { deviceName = "servidor ", deviceId = 0 },
                         {
                             type: "doughnut",
                             dataPoints: [
-                                { y: 40, indexLabel: "Online" },
-                                { y: 30, indexLabel: "Offline" },
-
+                                { y: 60, indexLabel: "Online" },
+                                { y: 40, indexLabel: "Offline" },
+                            
 
 
                             ]
@@ -468,8 +476,9 @@ new HostMonitor.Models.Devices { deviceName = "servidor ", deviceId = 0 },
                         {
                             type: "doughnut",
                             dataPoints: [
-                                { y: 40, indexLabel: "Online" },
-                                { y: 30, indexLabel: "Offline" },
+                                { y: 60, indexLabel: "Online" },
+                                { y: 40, indexLabel: "Offline" },
+                            
 
 
 
@@ -491,6 +500,7 @@ new HostMonitor.Models.Devices { deviceName = "servidor ", deviceId = 0 },
                             dataPoints: [
                                 { y: 40, indexLabel: "Online" },
                                 { y: 30, indexLabel: "Offline" },
+                                { y: 30, indexLabel: "Alerta" },
 
 
 
