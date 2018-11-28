@@ -316,6 +316,7 @@
     <Content Include="Views\Menssagems\Index.cshtml" />
     <Content Include="Views\Shared\_gruposPartial.cshtml" />
     <Content Include="Views\Hosts\Monitor.cshtml" />
+    <Content Include="Views\Hosts\Teste.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
