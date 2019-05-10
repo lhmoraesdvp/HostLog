@@ -29,11 +29,6 @@ namespace HostMonitor.Controllers
         }
 
 
-        public ActionResult Teste()
-        {
-            return View();
-        }
-
 
 
 
