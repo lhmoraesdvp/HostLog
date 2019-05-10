@@ -8,10 +8,10 @@
     var ho = l.Host.OrderByDescending(c => c.hostComunication);
     var computadores = l.Devices.Where(c => c.deviceName == "Desktop").Count();
 
-    int online(string comunicação)
+    int  online(string comunicação)
     {
-        int status = 3;
-        string data = DateTime.Now.ToShortDateString() + "  " + DateTime.Now.ToLongTimeString();
+        int status=3;
+        string data=   DateTime.Now.ToShortDateString() + "  " + DateTime.Now.ToLongTimeString();
 
         TimeSpan tempoAtendHoras = Convert.ToDateTime(data) - Convert.ToDateTime(comunicação);
         if (tempoAtendHoras.Days == 0)
@@ -109,13 +109,13 @@
     int alerta = ra();
 
     float co = l.Host.Count();
-    float pcof = 100 / co;
-    pcof = pcof * off;
+    float pcof = 100 /co;
+    pcof=pcof * off;
     int pcoff = Convert.ToInt32(pcof);
 
 
     float pconn = 100 / co;
-    pconn = pconn * on;
+    pconn=pconn* on;
     int pcon = Convert.ToInt32(pconn);
 
     float pcalertaa = 100 / co;
@@ -137,7 +137,6 @@
 
 
 
-<link href="~/Content/dashboard.css" rel="stylesheet" type="text/css" />
 
 
 <link href="~/Content/index.css" rel="stylesheet" type="text/css" />
@@ -185,7 +184,7 @@
         <th>
             @Html.DisplayName("Status")
         </th>
-
+    
         <th>
             @Html.DisplayName("Host Name")
         </th>
@@ -303,9 +302,9 @@
                 }
 
             }
-        </tr>}
-
-
+        </tr>    }
+            
+      
 </table>
 
 
